@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-2xl w-full bg-white rounded-xl shadow-xl p-8 border border-gray-200 relative">
+    
+    <!-- Header Section -->
+    <div class="flex justify-between items-center mb-8">
+      <div class="text-left">
+        <h2 class="text-3xl font-bold text-gray-900 flex items-center gap-2">
+          <span class="text-indigo-600 text-4xl">👤</span> Update Your Profile
+        </h2>
+        <p class="text-gray-600 mt-1">Keep your personal details up to date.</p>
+      </div>
+
+      <!-- Logout Button -->
+  {% if user.is_authenticated %}
+    <!-- Logout form -->
+    <form method="post" action="{% url 'logout' %}" class="inline m-0 pl-2">
+        {% csrf_token %}
+        <button type="submit" class="text-white bg-red-500 hover:bg-red-600 px-4 py-2 rounded-md">
+            🔒 Logout
+        </button>
+    </form>
+{% else %}
+    <!-- Login link -->
+    <a href="{% url 'login' %}" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+        Login
+    </a>
+{% endif %}
+
+    </div>
+
+    <!-- Form Section -->
+    <form method="POST" class="space-y-6">
+      {% csrf_token %}
+      <div class="space-y-4">
+        <h3 class="text-xl font-semibold text-gray-800 border-b pb-2">Personal Information</h3>
+        {{ user_form.as_p }}
+      </div>
+
+      <button type="submit" 
+              class="w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition duration-200 flex items-center justify-center gap-2">
+        💾 Save Changes
+      </button>
+    </form>
+
+    <!-- Success Messages -->
+    {% if messages %}
+      <div class="mt-6">
+        {% for message in messages %}
+          <div class="bg-green-100 text-green-700 p-3 rounded-lg font-medium">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

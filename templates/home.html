@@ -1,0 +1,423 @@
+
+ {% extends "base.html" %} 
+ {% load static %}
+ {% block title %}{{title}}{% endblock %}
+ {% block content %}
+
+<div id="myCarouselUnique1" class="carousel slide mb-6 relative" data-bs-ride="carousel" data-bs-interval="1500">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#myCarouselUnique1" data-bs-slide-to="0" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#myCarouselUnique1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#myCarouselUnique1" data-bs-slide-to="2" class="active" aria-current="true" aria-label="Slide 3"></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'home/ban1.png' %}" alt="Doctor holding heart model"
+           class="shadow-lg w-full h-auto object-cover">
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'home/ban2.png' %}" alt="Doctor holding heart model"
+           class="shadow-lg w-full h-auto object-cover">
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'home/ban3.png' %}" alt="Doctor holding heart model"
+           class="shadow-lg w-full h-auto object-cover">
+    </div>
+  </div>
+
+<div class="absolute bottom-3 sm:bottom-5 md:bottom-8
+            left-1/2 -translate-x-1/2
+            w-[52%] sm:w-[90%] lg:w-auto
+            max-w-full
+            flex flex-col sm:flex-row
+            rounded-2xl sm:rounded-full
+            overflow-hidden shadow-lg z-20">
+
+    <!-- Book Appointment -->
+    <a href="{% url 'book_appointment' %}"
+       class="flex flex-1 items-center justify-between gap-3
+              min-w-0
+              bg-[#FFFCEE] text-gray-900 font-semibold
+              px-4 py-3 sm:px-3 md:px-4 md:py-4
+              border-b sm:border-b-0 sm:border-r border-gray-300
+              hover:bg-[#F8F8E8]
+              transition duration-300
+              no-underline hover:no-underline">
+
+        <span class="text-sm sm:text-xs md:text-sm lg:text-base
+                     whitespace-nowrap">
+            Book Appointment
+        </span>
+
+        <span class="flex-shrink-0 flex items-center justify-center
+                     w-7 h-7 md:w-8 md:h-8
+                     border border-gray-400 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="w-4 h-4 text-gray-800"
+                 fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"/>
+            </svg>
+        </span>
+    </a>
+
+
+    <!-- WellnessCart -->
+    <a href="{% url 'product_list' %}"
+       class="flex flex-1 items-center justify-between gap-3
+              min-w-0
+              bg-[#E9F8FF] text-gray-900 font-semibold
+              px-4 py-3 sm:px-3 md:px-4 md:py-4
+              border-b sm:border-b-0 sm:border-r border-gray-300
+              hover:bg-[#DFF3FF]
+              transition duration-300
+              no-underline hover:no-underline">
+
+        <span class="text-sm sm:text-xs md:text-sm lg:text-base
+                     whitespace-nowrap">
+            WellnessCart
+        </span>
+
+        <span class="flex-shrink-0 flex items-center justify-center
+                     w-7 h-7 md:w-8 md:h-8
+                     border border-gray-400 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="w-4 h-4 text-gray-800"
+                 fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"/>
+            </svg>
+        </span>
+    </a>
+
+
+    <!-- Exercise Dashboard -->
+    <a href="{% url 'dashboard' %}"
+       class="flex flex-1 items-center justify-between gap-3
+              min-w-0
+              bg-[#E9F8FF] text-gray-900 font-semibold
+              px-4 py-3 sm:px-3 md:px-4 md:py-4
+              hover:bg-[#DFF3FF]
+              transition duration-300
+              no-underline hover:no-underline">
+
+        <span class="text-sm sm:text-xs md:text-sm lg:text-base
+                     whitespace-nowrap">
+            Exercise Dashboard
+        </span>
+
+        <span class="flex-shrink-0 flex items-center justify-center
+                     w-7 h-7 md:w-8 md:h-8
+                     border border-gray-400 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="w-4 h-4 text-gray-800"
+                 fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+                <path stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"/>
+            </svg>
+        </span>
+    </a>
+
+</div>
+
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarouselUnique1" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarouselUnique1" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- AI Healthcare Assistant Banner -->
+<div class="max-w-4xl mx-auto my-8 px-4">
+  <div class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-blue-800/50">
+    <div class="relative z-10 max-w-lg text-center md:text-left">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/20 border border-blue-400/30 rounded-full text-xs font-semibold text-blue-300 mb-3">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        AI-Powered 24/7 Health Support
+      </div>
+      <h3 class="text-2xl sm:text-3xl font-bold tracking-tight mb-2">Have a Health Question or Symptoms?</h3>
+      <p class="text-blue-200/90 text-sm leading-relaxed mb-4">
+        Talk with <strong>Dr. AI</strong>, our virtual healthcare assistant. Get instant guidance on fever, blood pressure, nutrition, and specialist doctor appointments.
+      </p>
+      <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
+        <a href="{% url 'new_chat' %}" class="bg-gradient-to-r from-blue-500 to-teal-400 hover:from-blue-600 hover:to-teal-500 text-white font-bold px-6 py-3 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 active:scale-95 no-underline flex items-center gap-2 text-sm">
+          <span>💬 Start Free Consultation</span>
+        </a>
+        <a href="{% url 'book_appointment' %}" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-5 py-3 rounded-xl transition text-sm no-underline">
+          Book Doctor Visit
+        </a>
+      </div>
+    </div>
+
+    <div class="relative z-10 w-36 h-36 sm:w-44 sm:h-44 flex items-center justify-center bg-blue-600/30 backdrop-blur-md rounded-full border border-blue-400/30 shadow-2xl shrink-0">
+      <div class="w-28 h-28 sm:w-36 sm:h-36 bg-gradient-to-tr from-blue-500 to-emerald-400 rounded-full flex items-center justify-center text-white shadow-inner">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 sm:h-20 sm:w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container py-5">
+  <div class="row text-center justify-content-center">
+    <!-- Column 1 -->
+    <div class="col-12 col-md-4 mb-4">
+      <div class="d-flex flex-column align-items-center">
+        <div class="rounded-circle bg-white shadow-lg d-flex justify-content-center align-items-center"
+             style="width:140px; height:140px; overflow:hidden;">
+          <img src="{% static 'front-ic/icon1.png' %}" alt="Family Health"
+               class="img-fluid w-100 h-100 object-fit-cover">
+        </div>
+        <h3 class="fw-semibold mt-3 text-primary">Family Health</h3>
+        <p class="text-muted px-3">
+          Comprehensive care for every family member — promoting wellness and preventive health.
+        </p>
+      </div>
+    </div>
+
+    <!-- Column 2 -->
+    <div class="col-12 col-md-4 mb-4">
+      <div class="d-flex flex-column align-items-center">
+        <div class="rounded-circle bg-white shadow-lg d-flex justify-content-center align-items-center"
+             style="width:140px; height:140px; overflow:hidden;">
+          <img src="{% static 'front-ic/icon2.png' %}" alt="Expert Consultation"
+               class="img-fluid w-100 h-100 object-fit-cover">
+        </div>
+        <h3 class="fw-semibold mt-3 text-primary">Expert Consultation</h3>
+        <p class="text-muted px-3">
+          Connect with certified doctors for personalized advice and professional guidance.
+        </p>
+      </div>
+    </div>
+
+    <!-- Column 3 -->
+    <div class="col-12 col-md-4 mb-4">
+      <div class="d-flex flex-column align-items-center">
+        <div class="rounded-circle bg-white shadow-lg d-flex justify-content-center align-items-center"
+             style="width:140px; height:140px; overflow:hidden;">
+          <img src="{% static 'front-ic/icon3.png' %}" alt="Emergency Support"
+               class="img-fluid w-100 h-100 object-fit-cover">
+        </div>
+        <h3 class="fw-semibold mt-3 text-primary">Emergency Support</h3>
+        <p class="text-muted px-3">
+          Quick access to essential medical kits and emergency assistance when needed.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
+{% comment %} <div class="bg-[url('{% static "front/banner1.png" %}')] bg-cover bg-center h-[300px] md:h-[400px] lg:h-[500px]  flex items-center justify-center object-cover">
+  <h1 class="text-white text-4xl font-bold">Welcome to Healthcare Portal</h1>
+  <img src="{% static 'front-icons/iconimage1.png' %}" class="w-40">
+</div> {% endcomment %}
+
+  <!-- Hero Section -->
+  <section class="bg-blue-50 py-16 ">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold text-blue-700 mb-4">Your Health, Our Priority</h2>
+      <p class="text-lg text-gray-600 mb-6">
+        Book appointments, access medical records, and connect with doctors — all in one place.
+      </p>
+      <a href="#" class="bg-blue-700 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-800">
+        Get Started
+      </a>
+    </div>
+  </section>
+
+
+
+    {% include "carousel.html" %}
+
+
+<section class="bg-gray-50 py-12">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h2 class="text-3xl font-bold text-center text-blue-800 mb-10">
+      Our Hospital Network
+    </h2>
+
+    <!-- Responsive Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Card 1 - Hospitals -->
+      <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-6 flex items-center gap-5 group">
+
+        <div class="w-16 h-16 flex-shrink-0 overflow-hidden rounded-xl">
+          <img
+            src="{% static 'iconimage/img1.png' %}"
+            alt="Hospitals"
+            class="w-16 h-16 object-contain transform transition-transform duration-500 ease-out group-hover:scale-125"
+          >
+        </div>
+
+        <div>
+          <h3 class="text-3xl font-bold text-blue-700">
+            75+
+            <span class="text-gray-800 text-lg font-semibold">
+              Hospitals
+            </span>
+          </h3>
+
+          <p class="text-gray-600 mt-2 leading-relaxed">
+            A trusted hospital network providing quality healthcare and advanced medical services.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- Card 2 - Cardiac Experts -->
+      <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-6 flex items-center gap-5 group">
+
+        <div class="w-16 h-16 flex-shrink-0 overflow-hidden rounded-xl">
+          <img
+            src="{% static 'iconimage/img2.png' %}"
+            alt="Cardiac Experts"
+            class="w-16 h-16 object-contain transform transition-transform duration-500 ease-out group-hover:scale-125"
+          >
+        </div>
+
+        <div>
+          <h3 class="text-3xl font-bold text-blue-700">
+            200+
+            <span class="text-gray-800 text-lg font-semibold">
+              Cardiac Experts
+            </span>
+          </h3>
+
+          <p class="text-gray-600 mt-2 leading-relaxed">
+            Advanced heart care supported by experienced cardiologists and modern cardiac treatment facilities.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- Card 3 - Tests Performed -->
+      <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-6 flex items-center gap-5 group">
+
+        <div class="w-16 h-16 flex-shrink-0 overflow-hidden rounded-xl">
+          <img
+            src="{% static 'iconimage/img3.png' %}"
+            alt="Tests Performed"
+            class="w-16 h-16 object-contain transform transition-transform duration-500 ease-out group-hover:scale-125"
+          >
+        </div>
+
+        <div>
+          <h3 class="text-3xl font-bold text-blue-700">
+            10L+
+            <span class="text-gray-800 text-lg font-semibold">
+              Tests Performed
+            </span>
+          </h3>
+
+          <p class="text-gray-600 mt-2 leading-relaxed">
+            Modern diagnostic laboratories delivering accurate and reliable medical test results.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- Card 4 - Pharmacy Support -->
+      <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-6 flex items-center gap-5 group">
+
+        <div class="w-16 h-16 flex-shrink-0 overflow-hidden rounded-xl">
+          <img
+            src="{% static 'iconimage/img4.png' %}"
+            alt="Pharmacy Support"
+            class="w-16 h-16 object-contain transform transition-transform duration-500 ease-out group-hover:scale-125"
+          >
+        </div>
+
+        <div>
+          <h3 class="text-3xl font-bold text-blue-700">
+            24x7
+            <span class="text-gray-800 text-lg font-semibold">
+              Pharmacy Support
+            </span>
+          </h3>
+
+          <p class="text-gray-600 mt-2 leading-relaxed">
+            Convenient pharmacy services with essential medicines and trusted healthcare support.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- Card 5 - Locations -->
+      <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-6 flex items-center gap-5 group">
+
+        <div class="w-16 h-16 flex-shrink-0 overflow-hidden rounded-xl">
+          <img
+            src="{% static 'iconimage/img8.png' %}"
+            alt="Locations"
+            class="w-16 h-16 object-contain transform transition-transform duration-500 ease-out group-hover:scale-125"
+          >
+        </div>
+
+        <div>
+          <h3 class="text-3xl font-bold text-blue-700">
+            100+
+            <span class="text-gray-800 text-lg font-semibold">
+              Locations
+            </span>
+          </h3>
+
+          <p class="text-gray-600 mt-2 leading-relaxed">
+            Conveniently located hospitals across major cities for accessible and timely healthcare.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- Card 6 - Expert Doctors -->
+      <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-6 flex items-center gap-5 group">
+
+        <div class="w-16 h-16 flex-shrink-0 overflow-hidden rounded-xl">
+          <img
+            src="{% static 'iconimage/img6.png' %}"
+            alt="Expert Doctors"
+            class="w-16 h-16 object-contain transform transition-transform duration-500 ease-out group-hover:scale-125"
+          >
+        </div>
+
+        <div>
+          <h3 class="text-3xl font-bold text-blue-700">
+            5000+
+            <span class="text-gray-800 text-lg font-semibold">
+              Expert Doctors
+            </span>
+          </h3>
+
+          <p class="text-gray-600 mt-2 leading-relaxed">
+            Experienced doctors and specialists dedicated to providing compassionate patient care.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

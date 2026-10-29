@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+
+<!-- Background Section -->
+<div class="min-h-screen bg-cover bg-center flex items-center justify-center mt-2 mb-2"
+     style="background-image: url('{% static "booking/img1.png" %}');">
+
+  <!-- Form Container -->
+  <div class="bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl p-10 w-full max-w-3xl text-white border border-white/20">
+    <h1 class="text-4xl font-extrabold text-center mb-3 tracking-wide text-white drop-shadow-lg">MEDICAL APPOINTMENT FORM</h1>
+    <p class="text-center text-gray-700 mb-8 text-lg">MAKE AN APPOINTMENT</p>
+
+    <form action="#" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  {% csrf_token %}
+      <!-- Patient Name -->
+      <div>
+        <label for="name" class="block text-sm font-semibold mb-1 text-white">Patient Name</label>
+        <input type="text" id="name" name="name"
+               class="w-full p-3 rounded-xl bg-white/30 text-gray-800 placeholder-gray-600 border border-white/40
+                      focus:outline-none focus:ring-2 focus:ring-pink-400 focus:bg-white/50 transition duration-300"
+               placeholder="Enter your name">
+      </div>
+
+      <!-- Select Date -->
+      <div>
+        <label for="date" class="block text-sm font-semibold mb-1 text-white">Select Date</label>
+        <input type="date" id="date" name="date"
+               class="w-full p-3 rounded-xl bg-white/30 text-gray-800 border border-white/40
+                      focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:bg-white/50 transition duration-300">
+      </div>
+
+      <!-- Phone Number -->
+      <div>
+        <label for="phone" class="block text-sm font-semibold mb-1 text-white">Phone Number</label>
+        <input type="tel" id="phone" name="phone"
+               class="w-full p-3 rounded-xl bg-white/30 text-gray-800 placeholder-gray-600 border border-white/40
+                      focus:outline-none focus:ring-2 focus:ring-green-400 focus:bg-white/50 transition duration-300"
+               placeholder="Enter phone number">
+      </div>
+
+      <!-- Department -->
+      <div>
+        <label for="department" class="block text-sm font-semibold mb-1 text-white">Department</label>
+        <select id="department" name="department"
+                class="w-full p-3 rounded-xl bg-white/30 text-gray-800 border border-white/40
+                       focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white/50 transition duration-300">
+          <option>Cardiology</option>
+          <option>Neurology</option>
+          <option>Orthopedics</option>
+          <option>General Medicine</option>
+        </select>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-semibold mb-1 text-white">Email</label>
+        <input type="email" id="email" name="email"
+               class="w-full p-3 rounded-xl bg-white/30 text-gray-800 placeholder-gray-600 border border-white/40
+                      focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:bg-white/50 transition duration-300"
+               placeholder="Enter email">
+      </div>
+
+      <!-- Gender -->
+      <div>
+        <label for="gender" class="block text-sm font-semibold mb-1 text-white">Gender</label>
+        <select id="gender" name="gender"
+                class="w-full p-3 rounded-xl bg-white/30 text-gray-800 border border-white/40
+                       focus:outline-none focus:ring-2 focus:ring-purple-400 focus:bg-white/50 transition duration-300">
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <!-- Symptoms -->
+      <div class="md:col-span-2">
+        <label for="symptoms" class="block text-sm font-semibold mb-1 text-white">Symptoms</label>
+        <input type="text" id="symptoms" name="symptoms"
+               class="w-full p-3 rounded-xl bg-white/30 text-gray-800 placeholder-gray-600 border border-white/40
+                      focus:outline-none focus:ring-2 focus:ring-orange-400 focus:bg-white/50 transition duration-300"
+               placeholder="Describe your symptoms">
+      </div>
+
+      <!-- Time -->
+      <div class="md:col-span-2">
+        <label for="time" class="block text-sm font-semibold mb-1 text-white">Preferred Time</label>
+        <input type="time" id="time" name="time"
+               class="w-full p-3 rounded-xl bg-white/30 text-gray-800 border border-white/40
+                      focus:outline-none focus:ring-2 focus:ring-teal-400 focus:bg-white/50 transition duration-300">
+      </div>
+
+      <!-- Submit Button -->
+      <div class="md:col-span-2 text-center mt-6">
+        <button type="submit"
+                class="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-pink-600 hover:to-orange-600
+                       text-white font-semibold py-3 px-10 rounded-full shadow-lg transition-transform
+                       transform hover:scale-105 duration-300">
+          Make an Appointment
+        </button>
+        <a type="submit"
+                class="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-pink-600 hover:to-orange-600
+                       text-white font-semibold py-3 px-10 rounded-full shadow-lg transition-transform
+                       transform hover:scale-105 duration-300 no-underline" href="{% url 'view_appointments' %}" >View Appointment</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+    <section class="mt-10 bg-white/40 backdrop-blur-lg rounded-xl shadow-lg p-6">
+  <h3 class="text-2xl font-semibold text-gray-800 mb-4">Appointment Instructions</h3>
+  <ul class="list-disc pl-6 text-gray-700 space-y-2">
+    <li>Fill in all required fields such as name, email, and symptoms before submitting.</li>
+    <li>Select your preferred time slot and doctor if applicable.</li>
+    <li>Ensure your contact details are correct for confirmation messages.</li>
+    <li>After submission, you will receive an email or SMS confirmation.</li>
+    <li>Bring your ID and previous medical reports during your visit.</li>
+  </ul>
+</section>
+
+<section class="mt-8 bg-white/40 backdrop-blur-lg rounded-xl shadow-lg p-6">
+  <h3 class="text-2xl font-semibold text-gray-800 mb-4">Healthcare Portal Highlights</h3>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-700">
+    <div class="p-4 rounded-lg bg-gradient-to-br from-pink-100 to-orange-100 shadow-md">
+      <h4 class="font-bold text-lg mb-2">Online Consultation</h4>
+      <p>Connect with certified doctors through video calls and chat support.</p>
+    </div>
+    <div class="p-4 rounded-lg bg-gradient-to-br from-blue-100 to-cyan-100 shadow-md">
+      <h4 class="font-bold text-lg mb-2">Health Records</h4>
+      <p>Access your medical history, prescriptions, and lab reports anytime.</p>
+    </div>
+    <div class="p-4 rounded-lg bg-gradient-to-br from-green-100 to-teal-100 shadow-md">
+      <h4 class="font-bold text-lg mb-2">Appointment Tracking</h4>
+      <p>View upcoming appointments, reschedule easily, and get reminders.</p>
+    </div>
+  </div>
+</section>
+
+
+    <footer class="text-center text-gray-200 text-sm mt-8">
+      © 2026. Medical Appointment Form. All Rights Reserved | Design by Sarath
+    </footer>
+{% endblock %}

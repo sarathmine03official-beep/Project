@@ -1,0 +1,397 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Doctors{% endblock %}
+
+{% block content %}
+
+<div class="bg-gray-50 py-8 px-4">
+
+    <!-- Doctor Grid -->
+    <div class="max-w-7xl mx-auto
+                grid grid-cols-1
+                sm:grid-cols-2
+                lg:grid-cols-3
+                gap-5">
+
+        {% for doctor in doctors %}
+
+        <!-- ================= DOCTOR CARD ================= -->
+        <div class="w-full max-w-[330px] mx-auto
+                    bg-white
+                    rounded-xl
+                    border border-gray-200
+                    shadow-sm
+                    hover:shadow-lg
+                    transition-shadow duration-300
+                    overflow-hidden">
+
+            <!-- ================= TOP SECTION ================= -->
+            <div class="h-[175px] flex">
+
+                <!-- Doctor Image -->
+                <div class="w-[37%] h-full bg-gray-100 shrink-0">
+
+                    <img
+                        src="{{ doctor.image.url }}"
+                        alt="Dr. {{ doctor.name }}"
+                        class="w-full h-full object-cover"
+                    >
+
+                </div>
+
+
+                <!-- Doctor Details -->
+                <div class="w-[63%] h-full p-3">
+
+                    <!-- Specialization + Doctor Icon -->
+                    <div class="flex items-center justify-between gap-1">
+
+                        <span class="bg-blue-50
+                                     text-blue-600
+                                     text-[9px]
+                                     font-semibold
+                                     px-2 py-1
+                                     rounded-md
+                                     whitespace-nowrap
+                                     truncate">
+
+                            {{ doctor.specialization }}
+
+                        </span>
+
+
+                        <!-- Fixed Doctor Icon -->
+                        <div class="w-[28px] h-[28px]
+                                    min-w-[28px]
+                                    rounded-full
+                                    bg-blue-50
+                                    flex items-center
+                                    justify-center">
+
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke-width="1.7"
+                                 stroke="currentColor"
+                                 class="w-[17px] h-[17px] text-blue-600">
+
+                                <path stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      d="M15 11a3 3 0 100-6
+                                         3 3 0 000 6z
+                                         M9 11a3 3 0 100-6
+                                         3 3 0 000 6z
+                                         M3 21a6 6 0 0112 0
+                                         M15 15a6 6 0 016 6" />
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Doctor Name -->
+                    <h2 class="text-[16px]
+                               font-bold
+                               text-gray-800
+                               mt-2
+                               truncate">
+
+                             {{ doctor.name }}
+
+                    </h2>
+
+
+                    <!-- Specialization -->
+                    <p class="text-[10px]
+                              text-blue-600
+                              font-semibold
+                              mt-1
+                              truncate">
+
+                        {{ doctor.specialization }}
+
+                    </p>
+
+
+                    <!-- Hospital -->
+                    <div class="flex items-center
+                                gap-1.5
+                                mt-2">
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.8"
+                             stroke="currentColor"
+                             class="w-[15px] h-[15px]
+                                    text-gray-500
+                                    shrink-0">
+
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M3 21h18M5 21V5
+                                     a2 2 0 012-2h10
+                                     a2 2 0 012 2v16
+                                     M9 7h2m2 0h2
+                                     M9 11h2m2 0h2" />
+
+                        </svg>
+
+                        <span class="text-[10px]
+                                     text-gray-500
+                                     truncate">
+
+                            {{ doctor.hospital }}
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- Experience -->
+                    <div class="flex items-center
+                                gap-1.5
+                                mt-2">
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.8"
+                             stroke="currentColor"
+                             class="w-[15px] h-[15px]
+                                    text-gray-500
+                                    shrink-0">
+
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M12 6v6l4 2
+                                     m6-2a10 10 0 11-20 0
+                                     10 10 0 0120 0z" />
+
+                        </svg>
+
+                        <span class="text-[10px]
+                                     text-gray-600
+                                     truncate">
+
+                            {{ doctor.experience }}+ Years Experience
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= INFORMATION SECTION ================= -->
+            <div class="mx-3 mt-2
+                        h-[62px]
+                        bg-blue-50
+                        rounded-lg
+                        overflow-hidden">
+
+                <div class="grid grid-cols-3 h-full">
+
+                    <!-- Available -->
+                    <div class="flex flex-col
+                                items-center
+                                justify-center
+                                border-r
+                                border-blue-100">
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.8"
+                             stroke="currentColor"
+                             class="w-[17px] h-[17px]
+                                    text-blue-600">
+
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M8 7V3m8 4V3
+                                     m-9 8h10
+                                     m-9 8h10
+                                     a2 2 0 002-2V7
+                                     a2 2 0 00-2-2H5
+                                     a2 2 0 00-2 2v10
+                                     a2 2 0 002 2z" />
+
+                        </svg>
+
+                        <span class="text-[8px]
+                                     text-gray-500
+                                     mt-1">
+
+                            Available
+
+                        </span>
+
+                        <span class="text-[9px]
+                                     font-semibold
+                                     text-gray-700">
+
+                            Mon - Sat
+
+                        </span>
+
+                        <span class="text-[7px]
+                                     text-gray-500">
+
+                            9:00 AM - 5:00 PM
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- Patients -->
+                    <div class="flex flex-col
+                                items-center
+                                justify-center
+                                border-r
+                                border-blue-100">
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.8"
+                             stroke="currentColor"
+                             class="w-[17px] h-[17px]
+                                    text-blue-600">
+
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M17 20h5v-2
+                                     a3 3 0 00-3-3h-2
+                                     m-4 5H7v-2
+                                     a3 3 0 013-3h4
+                                     m0-5a3 3 0 11-6 0
+                                     3 3 0 016 0z" />
+
+                        </svg>
+
+                        <span class="text-[8px]
+                                     text-gray-500
+                                     mt-1">
+
+                            Patients
+
+                        </span>
+
+                        <span class="text-[9px]
+                                     font-semibold
+                                     text-gray-700">
+
+                            1700+
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- ================= TAMIL LANGUAGE ================= -->
+                    <div class="flex flex-col
+                                items-center
+                                justify-center">
+
+                        <!-- FIXED ICON BOX -->
+                        <div class="w-[18px] h-[18px]
+                                    min-w-[18px]
+                                    min-h-[18px]
+                                    flex items-center
+                                    justify-center">
+
+                            <span class="block
+                                         text-[17px]
+                                         leading-[18px]
+                                         font-bold
+                                         text-blue-600">
+
+                                அ
+
+                            </span>
+
+                        </div>
+
+
+                        <span class="text-[8px]
+                                     text-gray-500
+                                     mt-1">
+
+                            Languages
+
+                        </span>
+
+                        <span class="text-[9px]
+                                     font-semibold
+                                     text-gray-700
+                                     whitespace-nowrap">
+
+                            தமிழ், English
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= BOOK BUTTON ================= -->
+            <div class="px-3 py-3">
+
+                <a href="{% url 'create_booking' doctor.id %}"
+                   class="h-[34px]
+                          flex items-center
+                          justify-center
+                          gap-2
+                          w-full
+                          bg-blue-600
+                          hover:bg-blue-700
+                          text-white
+                          text-[11px]
+                          font-semibold
+                          rounded-lg
+                          transition-colors duration-300">
+
+                    <span>
+                        Book Appointment
+                    </span>
+
+                    <!-- Fixed Arrow Box -->
+                    <span class="w-[20px] h-[20px]
+                                 min-w-[20px]
+                                 bg-white
+                                 text-blue-600
+                                 rounded-md
+                                 flex items-center
+                                 justify-center
+                                 text-[12px]">
+
+                        →
+
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+        <!-- ================= END CARD ================= -->
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+
+
+{% endblock %}

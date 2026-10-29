@@ -1,0 +1,176 @@
+    .parallax {
+      background-image: url("../paralax/medicine1.png");
+      height: 500px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .txt-c{
+        color: brown;
+    }
+
+/* #Carousel Slide methods */
+/* ==========================================================
+   DARK LEFT / RIGHT CAROUSEL ARROWS
+========================================================== */
+
+.specialty-control {
+    width: 75px !important;
+    opacity: 1 !important;
+
+    /* Bootstrap default positioning */
+    z-index: 20 !important;
+}
+
+
+/* Arrow Circle */
+
+.specialty-arrow {
+    width: 58px;
+    height: 58px;
+
+    min-width: 58px;
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #087f9f !important;
+
+    color: #ffffff !important;
+
+    font-size: 34px;
+    font-weight: 300;
+
+    line-height: 1;
+
+    border: none;
+
+    box-shadow: none;
+
+    opacity: 1 !important;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* ==========================================================
+   HOVER
+========================================================== */
+
+.specialty-control:hover .specialty-arrow {
+
+    background: #056b86 !important;
+
+    color: #ffffff !important;
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 6px 18px rgba(0, 70, 90, 0.25);
+}
+
+
+/* ==========================================================
+   LEFT ARROW
+========================================================== */
+
+.specialty-control.carousel-control-prev {
+
+    left: 25px !important;
+}
+
+
+/* ==========================================================
+   RIGHT ARROW
+========================================================== */
+
+.specialty-control.carousel-control-next {
+
+    right: 25px !important;
+}
+
+
+/* ==========================================================
+   REMOVE BOOTSTRAP DEFAULT ICON
+========================================================== */
+
+.specialty-control .carousel-control-prev-icon,
+.specialty-control .carousel-control-next-icon {
+
+    display: none !important;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .specialty-control {
+
+        width: 55px !important;
+    }
+
+
+    .specialty-arrow {
+
+        width: 46px;
+        height: 46px;
+
+        min-width: 46px;
+        min-height: 46px;
+
+        font-size: 27px;
+    }
+
+
+    .specialty-control.carousel-control-prev {
+
+        left: 2px !important;
+    }
+
+
+    .specialty-control.carousel-control-next {
+
+        right: 2px !important;
+    }
+
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width: 480px) {
+
+    .specialty-arrow {
+
+        width: 42px;
+        height: 42px;
+
+        min-width: 42px;
+        min-height: 42px;
+
+        font-size: 24px;
+    }
+
+}
+.specialty-control .carousel-control-prev-icon,
+.specialty-control .carousel-control-next-icon {
+    display: none !important;
+    background: #087f9f !important;
+    color: #ffffff !important;
+}
+
+

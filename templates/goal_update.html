@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-2xl w-full bg-white rounded-xl shadow-xl p-8 border border-gray-200">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl font-bold text-gray-900">🏋️ Update Your Workout Goals</h2>
+      <p class="text-gray-600 mt-2">Track and improve your fitness journey.</p>
+    </div>
+
+    <form method="POST" class="space-y-6">
+      {% csrf_token %}
+
+      <!-- Goal Info Section -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-semibold text-gray-800 border-b pb-2">Goal Information</h3>
+        {{ goal_form.as_p }}
+      </div>
+
+      <button type="submit" class="w-full py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition duration-200">
+        ✅ Save Goals
+      </button>
+    </form>
+
+    {% if messages %}
+      <div class="mt-6">
+        {% for message in messages %}
+          <div class="bg-green-100 text-green-700 p-3 rounded-lg font-medium">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

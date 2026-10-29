@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Appointment Details{% endblock %}
+{% block content %}
+<div class="container mx-auto mt-10 p-6 bg-gray-100 rounded-lg shadow-lg">
+  <h2 class="text-2xl font-bold mb-4 text-center">Appointment Details</h2>
+  <div class="space-y-3 text-gray-700">
+    <p><strong>Patient Name:</strong> {{ appointment.patient_fullname }}</p>
+    <p><strong>Doctor:</strong> {{ appointment.doctor_ref.name }}</p>
+    <p><strong>Date:</strong> {{ appointment.appointment_date }}</p>
+    <p><strong>Time:</strong> {{ appointment.appointment_time }}</p>
+    <p><strong>Created On:</strong> {{ appointment.created_on }}</p>
+  </div>
+  <div class="mt-6 text-center">
+    <a href="{% url 'view_doctor_bookings' appointment.doctor_ref.id %}"
+       class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+       Back to Bookings
+    </a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,897 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Healthcare Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+{% load static %}
+
+<!-- =========================================================
+     MEDICAL SPECIALTIES
+========================================================= -->
+
+<section
+    class="w-full overflow-hidden
+           bg-gradient-to-b from-[#eaf7fa] to-[#f8f5f1]
+           py-6 sm:py-8 lg:py-10">
+
+    <div class="container-fluid px-2 sm:px-4 lg:px-8">
+
+        <!-- =================================================
+             BOOTSTRAP CAROUSEL
+        ================================================== -->
+
+        <div
+            id="medicalSpecialtyCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+            data-bs-interval="5000"
+            data-bs-touch="true"
+        >
+
+            <!-- =================================================
+                 CAROUSEL INNER
+            ================================================== -->
+
+            <div class="carousel-inner">
+
+
+                <!-- =================================================
+                     CARD 1 - CARDIAC SCIENCES
+                ================================================== -->
+
+                <div class="carousel-item active">
+
+                    <div
+                        class="specialty-card
+                               mx-auto
+                               w-[calc(100%-70px)]
+                               sm:w-[calc(100%-100px)]
+                               lg:w-[calc(100%-150px)]
+                               max-w-[1130px]
+                               min-h-[500px]
+                               lg:min-h-[405px]
+                               bg-white
+                               rounded-[22px]
+                               shadow-[0_12px_35px_rgba(0,0,0,0.10)]
+                               p-4
+                               sm:p-5
+                               lg:p-[23px]
+                               flex
+                               flex-col
+                               lg:flex-row
+                               gap-5
+                               lg:gap-[30px]
+                               overflow-hidden">
+
+                        <!-- IMAGE -->
+
+                        <div
+                            class="specialty-image-box
+                                   w-full
+                                   lg:w-[435px]
+                                   lg:min-w-[435px]
+                                   h-[230px]
+                                   sm:h-[280px]
+                                   md:h-[320px]
+                                   lg:h-[357px]
+                                   rounded-[15px]
+                                   overflow-hidden
+                                   bg-[#edf6f8]"
+                        >
+
+                            <img
+                                src="{% static 'disease/Heart.png' %}"
+                                alt="Cardiac Sciences"
+                                class="specialty-image
+                                       w-full
+                                       h-full
+                                       object-cover
+                                       object-center"
+                            >
+
+                        </div>
+
+
+                        <!-- CONTENT -->
+
+                        <div
+                            class="flex-1
+                                   flex
+                                   flex-col
+                                   w-full"
+                        >
+
+                            <h2
+                                class="text-[22px]
+                                       sm:text-[24px]
+                                       lg:text-[26px]
+                                       font-bold
+                                       text-[#073b4c]
+                                       mb-3"
+                            >
+                                Cardiac Sciences
+                            </h2>
+
+
+                            <p
+                                class="text-[14px]
+                                       sm:text-[15px]
+                                       lg:text-[16px]
+                                       leading-7
+                                       text-[#244b57]"
+                            >
+                                Our Cardiac Sciences department provides
+                                advanced heart care with experienced
+                                cardiologists, modern diagnostics and
+                                personalized treatment options for complete
+                                cardiac care.
+
+                                <a
+                                    href="#"
+                                    class="text-[#073b4c] underline font-medium whitespace-nowrap"
+                                >
+                                    Read More
+                                </a>
+                            </p>
+
+
+                            <!-- BOTTOM CONTENT -->
+
+                            <div class="mt-auto pt-6">
+
+                                <h3
+                                    class="text-[15px]
+                                           lg:text-[16px]
+                                           font-medium
+                                           text-gray-800
+                                           mb-3"
+                                >
+                                    Top Specialties &amp; Procedures
+                                </h3>
+
+
+                                <div
+                                    class="w-full
+                                           h-px
+                                           bg-gray-200
+                                           mb-4"
+                                ></div>
+
+
+                                <div
+                                    class="flex
+                                           flex-wrap
+                                           gap-2
+                                           mb-5"
+                                >
+
+                                    <span class="medical-tag">
+                                        Heart Transplant
+                                    </span>
+
+                                    <span class="medical-tag">
+                                        Angioplasty
+                                    </span>
+
+                                </div>
+
+
+                                <div
+                                    class="flex
+                                           flex-wrap
+                                           gap-3"
+                                >
+
+                                    <a
+                                        href="#"
+                                        class="medical-btn"
+                                    >
+                                        FIND DOCTOR
+                                        <span>→</span>
+                                    </a>
+
+
+                                    <a
+                                        href="#"
+                                        class="medical-btn"
+                                    >
+                                        EXPLORE MORE
+                                        <span>→</span>
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     CARD 2 - KIDNEY CARE
+                ================================================== -->
+
+                <div class="carousel-item">
+
+                    <div class="specialty-card
+                                mx-auto
+                                w-[calc(100%-70px)]
+                                sm:w-[calc(100%-100px)]
+                                lg:w-[calc(100%-150px)]
+                                max-w-[1130px]
+                                min-h-[500px]
+                                lg:min-h-[405px]
+                                bg-white
+                                rounded-[22px]
+                                shadow-[0_12px_35px_rgba(0,0,0,0.10)]
+                                p-4 sm:p-5 lg:p-[23px]
+                                flex flex-col lg:flex-row
+                                gap-5 lg:gap-[30px]
+                                overflow-hidden">
+
+                        <div class="specialty-image-box
+                                    w-full lg:w-[435px] lg:min-w-[435px]
+                                    h-[230px] sm:h-[280px]
+                                    md:h-[320px] lg:h-[357px]
+                                    rounded-[15px] overflow-hidden">
+
+                            <img
+                                src="{% static 'disease/KidneyD.png' %}"
+                                alt="Kidney Care"
+                                class="specialty-image
+                                       w-full h-full
+                                       object-cover"
+                            >
+
+                        </div>
+
+
+                        <div class="flex-1 flex flex-col w-full">
+
+                            <h2 class="text-[22px] sm:text-[24px] lg:text-[26px]
+                                       font-bold text-[#073b4c] mb-3">
+                                Kidney Care
+                            </h2>
+
+
+                            <p class="text-[14px] sm:text-[15px] lg:text-[16px]
+                                      leading-7 text-[#244b57]">
+
+                                Our Kidney Care team provides comprehensive
+                                treatment for kidney disorders with advanced
+                                diagnostics, nephrology consultation and
+                                personalized treatment plans.
+
+                                <a href="#" class="text-[#073b4c] underline">
+                                    Read More
+                                </a>
+
+                            </p>
+
+
+                            <div class="mt-auto pt-6">
+
+                                <h3 class="text-[15px] lg:text-[16px]
+                                           font-medium text-gray-800 mb-3">
+                                    Top Specialties &amp; Procedures
+                                </h3>
+
+                                <div class="w-full h-px bg-gray-200 mb-4"></div>
+
+
+                                <div class="flex flex-wrap gap-2 mb-5">
+
+                                    <span class="medical-tag">
+                                        Kidney Transplant
+                                    </span>
+
+                                    <span class="medical-tag">
+                                        Dialysis
+                                    </span>
+
+                                </div>
+
+
+                                <div class="flex flex-wrap gap-3">
+
+                                    <a href="#" class="medical-btn">
+                                        FIND DOCTOR
+                                        <span>→</span>
+                                    </a>
+
+                                    <a href="#" class="medical-btn">
+                                        EXPLORE MORE
+                                        <span>→</span>
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     CARD 3 - DIABETES CARE
+                ================================================== -->
+
+                <div class="carousel-item">
+
+                    <div class="specialty-card
+                                mx-auto
+                                w-[calc(100%-70px)]
+                                sm:w-[calc(100%-100px)]
+                                lg:w-[calc(100%-150px)]
+                                max-w-[1130px]
+                                min-h-[500px]
+                                lg:min-h-[405px]
+                                bg-white rounded-[22px]
+                                shadow-[0_12px_35px_rgba(0,0,0,0.10)]
+                                p-4 sm:p-5 lg:p-[23px]
+                                flex flex-col lg:flex-row
+                                gap-5 lg:gap-[30px]
+                                overflow-hidden">
+
+                        <div class="specialty-image-box
+                                    w-full lg:w-[435px] lg:min-w-[435px]
+                                    h-[230px] sm:h-[280px]
+                                    md:h-[320px] lg:h-[357px]
+                                    rounded-[15px] overflow-hidden">
+
+                            <img
+                                src="{% static 'disease/Diabetes.jpg' %}"
+                                alt="Diabetes Care"
+                                class="specialty-image
+                                       w-full h-full object-cover"
+                            >
+
+                        </div>
+
+
+                        <div class="flex-1 flex flex-col">
+
+                            <h2 class="text-[22px] sm:text-[24px] lg:text-[26px]
+                                       font-bold text-[#073b4c] mb-3">
+                                Diabetes Care
+                            </h2>
+
+
+                            <p class="text-[14px] sm:text-[15px] lg:text-[16px]
+                                      leading-7 text-[#244b57]">
+
+                                Our Diabetes Care program helps patients manage
+                                diabetes through early screening, personalized
+                                treatment, nutrition guidance and regular
+                                monitoring.
+
+                                <a href="#" class="text-[#073b4c] underline">
+                                    Read More
+                                </a>
+
+                            </p>
+
+
+                            <div class="mt-auto pt-6">
+
+                                <h3 class="text-[15px] lg:text-[16px]
+                                           font-medium text-gray-800 mb-3">
+                                    Top Specialties &amp; Procedures
+                                </h3>
+
+                                <div class="w-full h-px bg-gray-200 mb-4"></div>
+
+
+                                <div class="flex flex-wrap gap-2 mb-5">
+
+                                    <span class="medical-tag">
+                                        Diabetes Management
+                                    </span>
+
+                                    <span class="medical-tag">
+                                        Diabetic Care
+                                    </span>
+
+                                </div>
+
+
+                                <div class="flex flex-wrap gap-3">
+
+                                    <a href="#" class="medical-btn">
+                                        FIND DOCTOR
+                                        <span>→</span>
+                                    </a>
+
+                                    <a href="#" class="medical-btn">
+                                        EXPLORE MORE
+                                        <span>→</span>
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     CARD 4 - HYPERTENSION
+                ================================================== -->
+
+                <div class="carousel-item">
+
+                    <div class="specialty-card
+                                mx-auto
+                                w-[calc(100%-70px)]
+                                sm:w-[calc(100%-100px)]
+                                lg:w-[calc(100%-150px)]
+                                max-w-[1130px]
+                                min-h-[500px]
+                                lg:min-h-[405px]
+                                bg-white rounded-[22px]
+                                shadow-[0_12px_35px_rgba(0,0,0,0.10)]
+                                p-4 sm:p-5 lg:p-[23px]
+                                flex flex-col lg:flex-row
+                                gap-5 lg:gap-[30px]
+                                overflow-hidden">
+
+                        <div class="specialty-image-box
+                                    w-full lg:w-[435px] lg:min-w-[435px]
+                                    h-[230px] sm:h-[280px]
+                                    md:h-[320px] lg:h-[357px]
+                                    rounded-[15px] overflow-hidden">
+
+                            <img
+                                src="{% static 'disease/Hypertension.png' %}"
+                                alt="Hypertension Care"
+                                class="specialty-image
+                                       w-full h-full object-cover"
+                            >
+
+                        </div>
+
+
+                        <div class="flex-1 flex flex-col">
+
+                            <h2 class="text-[22px] sm:text-[24px] lg:text-[26px]
+                                       font-bold text-[#073b4c] mb-3">
+                                Hypertension Care
+                            </h2>
+
+
+                            <p class="text-[14px] sm:text-[15px] lg:text-[16px]
+                                      leading-7 text-[#244b57]">
+
+                                Our Hypertension Care services focus on accurate
+                                blood pressure assessment, cardiovascular risk
+                                management and personalized treatment.
+
+                                <a href="#" class="text-[#073b4c] underline">
+                                    Read More
+                                </a>
+
+                            </p>
+
+
+                            <div class="mt-auto pt-6">
+
+                                <h3 class="text-[15px] lg:text-[16px]
+                                           font-medium text-gray-800 mb-3">
+                                    Top Specialties &amp; Procedures
+                                </h3>
+
+                                <div class="w-full h-px bg-gray-200 mb-4"></div>
+
+
+                                <div class="flex flex-wrap gap-2 mb-5">
+
+                                    <span class="medical-tag">
+                                        BP Management
+                                    </span>
+
+                                    <span class="medical-tag">
+                                        Heart Risk Care
+                                    </span>
+
+                                </div>
+
+
+                                <div class="flex flex-wrap gap-3">
+
+                                    <a href="#" class="medical-btn">
+                                        FIND DOCTOR
+                                        <span>→</span>
+                                    </a>
+
+                                    <a href="#" class="medical-btn">
+                                        EXPLORE MORE
+                                        <span>→</span>
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     CARD 5 - ONCOLOGY
+                ================================================== -->
+
+                <div class="carousel-item">
+
+                    <div class="specialty-card
+                                mx-auto
+                                w-[calc(100%-70px)]
+                                sm:w-[calc(100%-100px)]
+                                lg:w-[calc(100%-150px)]
+                                max-w-[1130px]
+                                min-h-[500px]
+                                lg:min-h-[405px]
+                                bg-white rounded-[22px]
+                                shadow-[0_12px_35px_rgba(0,0,0,0.10)]
+                                p-4 sm:p-5 lg:p-[23px]
+                                flex flex-col lg:flex-row
+                                gap-5 lg:gap-[30px]
+                                overflow-hidden">
+
+                        <div class="specialty-image-box
+                                    w-full lg:w-[435px] lg:min-w-[435px]
+                                    h-[230px] sm:h-[280px]
+                                    md:h-[320px] lg:h-[357px]
+                                    rounded-[15px] overflow-hidden">
+
+                            <img
+                                src="{% static 'disease/Cancer.png' %}"
+                                alt="Oncology"
+                                class="specialty-image
+                                       w-full h-full object-cover"
+                            >
+
+                        </div>
+
+
+                        <div class="flex-1 flex flex-col">
+
+                            <h2 class="text-[22px] sm:text-[24px] lg:text-[26px]
+                                       font-bold text-[#073b4c] mb-3">
+                                Oncology
+                            </h2>
+
+
+                            <p class="text-[14px] sm:text-[15px] lg:text-[16px]
+                                      leading-7 text-[#244b57]">
+
+                                Our Oncology department provides comprehensive
+                                and compassionate cancer care through a
+                                multidisciplinary team, advanced diagnostics
+                                and personalized treatment plans.
+
+                                <a href="#" class="text-[#073b4c] underline">
+                                    Read More
+                                </a>
+
+                            </p>
+
+
+                            <div class="mt-auto pt-6">
+
+                                <h3 class="text-[15px] lg:text-[16px]
+                                           font-medium text-gray-800 mb-3">
+                                    Top Specialties &amp; Procedures
+                                </h3>
+
+                                <div class="w-full h-px bg-gray-200 mb-4"></div>
+
+
+                                <div class="flex flex-wrap gap-2 mb-5">
+
+                                    <span class="medical-tag">
+                                        Cancer Treatment
+                                    </span>
+
+                                    <span class="medical-tag">
+                                        Radiation Therapy
+                                    </span>
+
+                                </div>
+
+
+                                <div class="flex flex-wrap gap-3">
+
+                                    <a href="#" class="medical-btn">
+                                        FIND DOCTOR
+                                        <span>→</span>
+                                    </a>
+
+                                    <a href="#" class="medical-btn">
+                                        EXPLORE MORE
+                                        <span>→</span>
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     CARD 6 - PREVENTIVE HEALTH
+                ================================================== -->
+
+                <div class="carousel-item">
+
+                    <div class="specialty-card
+                                mx-auto
+                                w-[calc(100%-70px)]
+                                sm:w-[calc(100%-100px)]
+                                lg:w-[calc(100%-150px)]
+                                max-w-[1130px]
+                                min-h-[500px]
+                                lg:min-h-[405px]
+                                bg-white rounded-[22px]
+                                shadow-[0_12px_35px_rgba(0,0,0,0.10)]
+                                p-4 sm:p-5 lg:p-[23px]
+                                flex flex-col lg:flex-row
+                                gap-5 lg:gap-[30px]
+                                overflow-hidden">
+
+                        <div class="specialty-image-box
+                                    w-full lg:w-[435px] lg:min-w-[435px]
+                                    h-[230px] sm:h-[280px]
+                                    md:h-[320px] lg:h-[357px]
+                                    rounded-[15px] overflow-hidden">
+
+                            <img
+                                src="{% static 'disease/Heart.png' %}"
+                                alt="Preventive Healthcare"
+                                class="specialty-image
+                                       w-full h-full object-cover"
+                            >
+
+                        </div>
+
+
+                        <div class="flex-1 flex flex-col">
+
+                            <h2 class="text-[22px] sm:text-[24px] lg:text-[26px]
+                                       font-bold text-[#073b4c] mb-3">
+                                Preventive Healthcare
+                            </h2>
+
+
+                            <p class="text-[14px] sm:text-[15px] lg:text-[16px]
+                                      leading-7 text-[#244b57]">
+
+                                Preventive healthcare focuses on regular health
+                                screening, early detection, wellness guidance
+                                and healthy lifestyle management for better
+                                overall health.
+
+                                <a href="#" class="text-[#073b4c] underline">
+                                    Read More
+                                </a>
+
+                            </p>
+
+
+                            <div class="mt-auto pt-6">
+
+                                <h3 class="text-[15px] lg:text-[16px]
+                                           font-medium text-gray-800 mb-3">
+                                    Top Specialties &amp; Procedures
+                                </h3>
+
+                                <div class="w-full h-px bg-gray-200 mb-4"></div>
+
+
+                                <div class="flex flex-wrap gap-2 mb-5">
+
+                                    <span class="medical-tag">
+                                        Health Screening
+                                    </span>
+
+                                    <span class="medical-tag">
+                                        Wellness Checkup
+                                    </span>
+
+                                </div>
+
+
+                                <div class="flex flex-wrap gap-3">
+
+                                    <a href="#" class="medical-btn">
+                                        FIND DOCTOR
+                                        <span>→</span>
+                                    </a>
+
+                                    <a href="#" class="medical-btn">
+                                        EXPLORE MORE
+                                        <span>→</span>
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 LEFT ARROW
+                 EXACT DARK TEAL STYLE
+            ================================================== -->
+
+            <button
+                type="button"
+                class="carousel-control-prev
+                       !w-[65px]
+                       !opacity-100
+                       !z-30
+                       !left-[5px]
+                       sm:!left-[15px]
+                       lg:!left-[25px]"
+                data-bs-target="#medicalSpecialtyCarousel"
+                data-bs-slide="prev"
+            >
+
+                <span
+                    class="specialty-arrow
+                           !w-[58px]
+                           !h-[58px]
+                           !min-w-[58px]
+                           !min-h-[58px]
+                           !rounded-full
+                           !bg-[#087f9f]
+                           !text-white
+                           flex
+                           items-center
+                           justify-center
+                           text-[32px]
+                           font-light
+                           leading-none
+                           shadow-none
+                           transition-all
+                           duration-300
+                           hover:!bg-[#056b86]
+                           hover:scale-110"
+                    aria-hidden="true"
+                >
+                    ←
+                </span>
+
+                <span class="visually-hidden">
+                    Previous
+                </span>
+
+            </button>
+
+
+            <!-- =================================================
+                 RIGHT ARROW
+                 EXACT DARK TEAL STYLE
+            ================================================== -->
+
+            <button
+                type="button"
+                class="carousel-control-next
+                       !w-[65px]
+                       !opacity-100
+                       !z-30
+                       !right-[5px]
+                       sm:!right-[15px]
+                       lg:!right-[25px]"
+                data-bs-target="#medicalSpecialtyCarousel"
+                data-bs-slide="next"
+            >
+
+                <span
+                    class="specialty-arrow
+                           !w-[58px]
+                           !h-[58px]
+                           !min-w-[58px]
+                           !min-h-[58px]
+                           !rounded-full
+                           !bg-[#087f9f]
+                           !text-white
+                           flex
+                           items-center
+                           justify-center
+                           text-[32px]
+                           font-light
+                           leading-none
+                           shadow-none
+                           transition-all
+                           duration-300
+                           hover:!bg-[#056b86]
+                           hover:scale-110"
+                    aria-hidden="true"
+                >
+                    →
+                </span>
+
+                <span class="visually-hidden">
+                    Next
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             VIEW ALL SPECIALTIES
+        ================================================== -->
+
+        <div class="flex justify-center mt-8 sm:mt-10">
+
+            <a
+                href="{% url 'doctor_list' %}"
+                class="inline-flex
+                       items-center
+                       justify-center
+                       gap-4
+                       bg-[#ffd447]
+                       text-gray-900
+                       px-7
+                       py-3.5
+                       rounded-full
+                       font-bold
+                       text-xs sm:text-sm
+                       transition-all
+                       duration-300
+                       hover:-translate-y-1
+                       hover:shadow-lg"
+            >
+
+                VIEW ALL SPECIALTIES
+
+                <span class="text-xl">
+                    →
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>

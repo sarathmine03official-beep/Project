@@ -1,0 +1,676 @@
+ {% extends "base.html" %} 
+{% load static %}
+{% block title %}{{title}}{% endblock %}
+{% block content %}
+{% comment %} 
+         <img src="{% static 'health/banner/img1.png' %}" alt="Doctor holding heart model"
+           class=" shadow-lg w-full h-auto object-cover"> {% endcomment %}
+{% load static %}
+
+{% load static %}
+
+<!-- =========================
+     LIBRARY REFLECTIONS SECTION
+========================= -->
+
+<section class="relative overflow-hidden bg-slate-50 py-5 py-lg-6">
+
+    <!-- Decorative dots -->
+    <div class="position-absolute top-0 start-0 opacity-50 d-none d-lg-block"
+         style="width:100px;height:100px;">
+        <div class="grid grid-cols-4 gap-3 p-4">
+            {% for i in "1234567890123456" %}
+                <span class="w-2 h-2 bg-teal-300 rounded-full"></span>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="container position-relative">
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================= -->
+
+        <div class="row align-items-center g-4 g-lg-5">
+
+
+            <!-- =========================
+                 LEFT CONTENT
+            ========================= -->
+
+            <div class="col-12 col-lg-6 order-2 order-lg-1">
+
+                <!-- Small title -->
+                <div class="d-flex align-items-center gap-3 mb-3">
+
+                    <div class="flex-shrink-0">
+
+                        <div class="d-flex align-items-center justify-content-center
+                                    bg-teal-600 rounded-lg shadow-sm"
+                             style="width:42px;height:42px;">
+
+                            <i class="bi bi-book-half text-white fs-5"></i>
+
+                        </div>
+
+                        <div class="bg-teal-600 rounded-pill mt-2 mx-auto"
+                             style="width:28px;height:3px;">
+                        </div>
+
+                    </div>
+
+                    <h6 class="mb-0 fw-bold text-teal-700 tracking-wide">
+                        Library Reflections
+                    </h6>
+
+                </div>
+
+
+                <!-- Main Heading -->
+
+                <h1 class="display-5 fw-bold text-slate-900 leading-tight mb-4">
+
+                    Nourish Your Mind,
+                    <br>
+
+                    <span class="text-teal-600">
+                        Shape a Better Tomorrow
+                    </span>
+
+                </h1>
+
+
+                <!-- Underline -->
+
+                <div class="bg-teal-500 rounded-pill mb-4"
+                     style="width:170px;height:4px;">
+                </div>
+
+
+                <!-- Description -->
+
+                <p class="text-slate-600 fs-5 lh-lg mb-4">
+
+                    Books open doors to endless worlds and timeless wisdom.
+                    In every page, we discover new ideas, new perspectives,
+                    and new versions of ourselves.
+
+                </p>
+
+
+                <p class="text-slate-600 fs-6 lh-lg mb-4">
+
+                    A library is more than shelves and silence —
+                    it's a space where curiosity grows, imagination thrives,
+                    and minds find their wings.
+
+                </p>
+
+
+                <p class="text-slate-600 fs-6 lh-lg mb-4">
+
+                    Let's build a habit of reading, learning, and reflecting.
+                    Because a well-read mind leads to a well-lived life.
+
+                </p>
+
+
+                <!-- =========================
+                     FEATURE CARDS
+                ========================= -->
+
+                <div class="row g-3 mt-2">
+
+
+                    <!-- Card 1 -->
+
+                    <div class="col-6 col-md-3">
+
+                        <div class="h-100 bg-white rounded-4 p-3
+                                    shadow-sm border border-slate-100
+                                    transition-all duration-300
+                                    hover:-translate-y-1 hover:shadow-lg">
+
+                            <div class="d-flex align-items-center
+                                        justify-content-center
+                                        bg-teal-50 rounded-circle mb-3"
+                                 style="width:48px;height:48px;">
+
+                                <i class="bi bi-book-half text-teal-600 fs-5"></i>
+
+                            </div>
+
+                            <h6 class="fw-bold text-slate-800 mb-1">
+                                Read More
+                            </h6>
+
+                            <p class="small text-slate-500 mb-0">
+                                Expand your knowledge
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Card 2 -->
+
+                    <div class="col-6 col-md-3">
+
+                        <div class="h-100 bg-white rounded-4 p-3
+                                    shadow-sm border border-slate-100
+                                    transition-all duration-300
+                                    hover:-translate-y-1 hover:shadow-lg">
+
+                            <div class="d-flex align-items-center
+                                        justify-content-center
+                                        bg-teal-50 rounded-circle mb-3"
+                                 style="width:48px;height:48px;">
+
+                                <i class="bi bi-lightbulb text-teal-600 fs-5"></i>
+
+                            </div>
+
+                            <h6 class="fw-bold text-slate-800 mb-1">
+                                Think Deep
+                            </h6>
+
+                            <p class="small text-slate-500 mb-0">
+                                Develop critical thinking
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Card 3 -->
+
+                    <div class="col-6 col-md-3">
+
+                        <div class="h-100 bg-white rounded-4 p-3
+                                    shadow-sm border border-slate-100
+                                    transition-all duration-300
+                                    hover:-translate-y-1 hover:shadow-lg">
+
+                            <div class="d-flex align-items-center
+                                        justify-content-center
+                                        bg-teal-50 rounded-circle mb-3"
+                                 style="width:48px;height:48px;">
+
+                                <i class="bi bi-people-fill text-teal-600 fs-5"></i>
+
+                            </div>
+
+                            <h6 class="fw-bold text-slate-800 mb-1">
+                                Grow Together
+                            </h6>
+
+                            <p class="small text-slate-500 mb-0">
+                                Share & learn
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Card 4 -->
+
+                    <div class="col-6 col-md-3">
+
+                        <div class="h-100 bg-white rounded-4 p-3
+                                    shadow-sm border border-slate-100
+                                    transition-all duration-300
+                                    hover:-translate-y-1 hover:shadow-lg">
+
+                            <div class="d-flex align-items-center
+                                        justify-content-center
+                                        bg-teal-50 rounded-circle mb-3"
+                                 style="width:48px;height:48px;">
+
+                                <i class="bi bi-heart-fill text-teal-600 fs-5"></i>
+
+                            </div>
+
+                            <h6 class="fw-bold text-slate-800 mb-1">
+                                Live Better
+                            </h6>
+
+                            <p class="small text-slate-500 mb-0">
+                                Knowledge empowers
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- =========================
+                 RIGHT IMAGE
+            ========================= -->
+
+            <div class="col-12 col-lg-6 order-1 order-lg-2">
+
+                <div class="position-relative d-flex
+                            align-items-center justify-content-center">
+
+                    <!-- Outer border shape -->
+
+                    <div class="absolute w-full h-full
+                                border-2 border-teal-200
+                                rounded-[28%_8%_28%_8%]
+                                rotate-2
+                                scale-[1.02]">
+                    </div>
+
+
+                    <!-- Image wrapper -->
+
+                    <div class="relative w-full overflow-hidden
+                                rounded-[28%_8%_28%_8%]
+                                shadow-2xl"
+                         style="height:clamp(360px, 48vw, 610px);">
+
+                        <img
+                            src="{% static 'health/banner/img6.png' %}"
+                            alt="Library and Wellness"
+                            class="w-100 h-74 object-cover"
+                        >
+
+                        <!-- Soft overlay -->
+
+                        <div class="absolute inset-0
+                                    bg-gradient-to-t
+                                    from-slate-900/20
+                                    via-transparent
+                                    to-transparent">
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+                    </div>
+
+
+                    <!-- Floating percentage -->
+
+                    {% comment %} <div class="absolute top-4 end-4
+                                bg-white/95 backdrop-blur-md
+                                rounded-circle shadow-lg
+                                d-flex flex-column
+                                align-items-center
+                                justify-content-center"
+                         style="width:92px;height:92px;">
+
+                        <strong class="text-teal-600 fs-4">
+                            72%
+                        </strong>
+
+                        <small class="text-slate-500">
+                            Progress
+                        </small>
+
+                    </div> {% endcomment %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- =========================
+             STATISTICS BAR
+        ========================= -->
+
+        <div class="mt-5 pt-2">
+
+            <div class="bg-white rounded-4 shadow-lg
+                        border border-slate-100
+                        px-3 px-md-4 py-4">
+
+                <div class="row align-items-center g-4">
+
+
+                    <!-- Quote -->
+
+                    <div class="col-12 col-lg-4">
+
+                        <div class="d-flex align-items-center gap-3">
+
+                            <div class="d-flex align-items-center
+                                        justify-content-center
+                                        bg-teal-500 text-white
+                                        rounded-circle flex-shrink-0"
+                                 style="width:52px;height:52px;">
+
+                                <i class="bi bi-quote fs-3"></i>
+
+                            </div>
+
+                            <p class="mb-0 text-slate-600 fw-medium">
+                                A library today is a gateway
+                                to a better tomorrow.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Books -->
+
+                    <div class="col-6 col-md-3 col-lg">
+
+                        <div class="text-center border-start
+                                    border-slate-200">
+
+                            <i class="bi bi-book-half
+                                      text-teal-500 fs-3"></i>
+
+                            <h5 class="fw-bold text-slate-800 mb-0">
+                                25K+
+                            </h5>
+
+                            <small class="text-slate-500">
+                                Books
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Members -->
+
+                    <div class="col-6 col-md-3 col-lg">
+
+                        <div class="text-center border-start
+                                    border-slate-200">
+
+                            <i class="bi bi-people-fill
+                                      text-teal-500 fs-3"></i>
+
+                            <h5 class="fw-bold text-slate-800 mb-0">
+                                10K+
+                            </h5>
+
+                            <small class="text-slate-500">
+                                Members
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Events -->
+
+                    <div class="col-6 col-md-3 col-lg">
+
+                        <div class="text-center border-start
+                                    border-slate-200">
+
+                            <i class="bi bi-calendar-event
+                                      text-teal-500 fs-3"></i>
+
+                            <h5 class="fw-bold text-slate-800 mb-0">
+                                200+
+                            </h5>
+
+                            <small class="text-slate-500">
+                                Events
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Rating -->
+
+                    <div class="col-6 col-md-3 col-lg">
+
+                        <div class="text-center border-start
+                                    border-slate-200">
+
+                            <i class="bi bi-star-fill
+                                      text-teal-500 fs-3"></i>
+
+                            <h5 class="fw-bold text-slate-800 mb-0">
+                                4.8/5
+                            </h5>
+
+                            <small class="text-slate-500">
+                                User Rating
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     BOOTSTRAP ICONS
+========================= -->
+
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+>
+
+
+<!-- =========================
+     SMALL CUSTOM CSS
+========================= -->
+
+<style>
+
+    .text-slate-900 {
+        color: #0f172a;
+    }
+
+    .text-slate-800 {
+        color: #1e293b;
+    }
+
+    .text-slate-600 {
+        color: #475569;
+    }
+
+    .text-slate-500 {
+        color: #64748b;
+    }
+
+    .bg-teal-50 {
+        background-color: #f0fdfa;
+    }
+
+    .bg-teal-100 {
+        background-color: #ccfbf1;
+    }
+
+    .bg-teal-300 {
+        background-color: #5eead4;
+    }
+
+    .bg-teal-500 {
+        background-color: #14b8a6;
+    }
+
+    .bg-teal-600 {
+        background-color: #0d9488;
+    }
+
+    .text-teal-600 {
+        color: #0d9488;
+    }
+
+    .text-teal-700 {
+        color: #0f766e;
+    }
+
+    .border-teal-200 {
+        border-color: #99f6e4;
+    }
+
+    .leading-tight {
+        line-height: 1.15;
+    }
+
+    .tracking-wide {
+        letter-spacing: .04em;
+    }
+
+    @media (max-width: 991.98px) {
+
+        .display-5 {
+            font-size: 2.4rem;
+        }
+
+    }
+
+    @media (max-width: 575.98px) {
+
+        .display-5 {
+            font-size: 2rem;
+        }
+
+        .fs-5 {
+            font-size: 1rem !important;
+        }
+
+        /* Smaller image on mobile */
+
+        .rounded-\[28\%_8\%_28\%_8\%\] {
+            border-radius: 22% 6% 22% 6%;
+        }
+
+    }
+
+</style>
+
+<!-- =========================================
+     Healthy Morning Exercise Layout
+========================================= -->
+<section class="flex flex-col lg:flex-row items-center justify-between bg-slate-900 text-slate-100 p-10 shadow-xl">
+  
+  <!-- Text Section -->
+  <div class="lg:w-2/3 space-y-5">
+    <h2 class="text-2xl font-semibold text-blue-400">Morning Exercise Reflections</h2>
+    <p class="text-base leading-relaxed text-slate-300">
+      A healthy morning isn’t just about food — it’s about movement. Exercise awakens your body, clears your mind, and sets the rhythm for a productive day. Each stretch and step brings you closer to balance and strength.
+    </p>
+    <p class="text-base leading-relaxed text-slate-300">
+      Whether it’s yoga, a brisk walk, or a quick workout, consistency is key. Regular exercise improves focus, reduces stress, and builds resilience — helping you face every challenge with confidence.
+    </p>
+    <p class="text-base leading-relaxed text-slate-300">
+      Move with purpose, breathe with intention, and let your energy shape a stronger, happier you.
+    </p>
+  </div>
+
+  <!-- Image Section -->
+  <div class="lg:w-1/3 mt-8 lg:mt-0 lg:ml-10">
+    <img src="{% static 'health/ex1.png' %}" alt="Morning Exercise" class="rounded-xl shadow-lg object-cover w-full h-64 lg:h-64 transition-transform duration-500 hover:scale-105">
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     Healthy Breakfast Layout
+========================================= -->
+<section class="flex flex-col lg:flex-row items-center justify-between bg-slate-900 text-slate-100 p-10 shadow-xl">
+  
+  <!-- Text Section -->
+  <div class="lg:w-2/3 space-y-5">
+    <h2 class="text-2xl font-semibold text-blue-400">Healthy Breakfast Reflections</h2>
+    <p class="text-base leading-relaxed text-slate-300">
+      A healthy morning begins with mindful choices. Every meal is a chance to nourish your body and refresh your mind. Start your day with balance — fuel your energy, boost your focus, and strengthen your immunity.
+    </p>
+    <p class="text-base leading-relaxed text-slate-300">
+      Breakfast isn’t just food; it’s the foundation of your day. A bowl of oats, fresh fruits, and a glass of juice can do more than fill your stomach — they prepare you to take on challenges with clarity and strength.
+    </p>
+    <p class="text-base leading-relaxed text-slate-300">
+      Eat smart, live strong. Because every healthy choice today builds a stronger tomorrow.
+    </p>
+  </div>
+
+  <!-- Image Section -->
+  <div class="lg:w-1/3 mt-8 lg:mt-0 lg:ml-10">
+    <img src="{% static 'health/ex2.png' %}" alt="Healthy Breakfast" class="rounded-xl shadow-lg object-cover w-full h-64 lg:h-64 transition-transform duration-500 hover:scale-105">
+  </div>
+
+</section>
+
+<!-- =========================================
+     Modern Library Quote Layout
+========================================= -->
+<section class="flex flex-col lg:flex-row items-center justify-between bg-slate-900 text-slate-100 p-10  shadow-xl">
+  
+  <!-- Text Section -->
+  <div class="lg:w-2/3 space-y-5">
+    <h2 class="text-2xl font-semibold text-blue-400">Library Reflections</h2>
+    <p class="text-base leading-relaxed text-slate-300">
+      Maybe we can live without libraries, people like you and me. Maybe. Sure, we're too old to change the world, but what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve better?
+    </p>
+    <p class="text-base leading-relaxed text-slate-300">
+      Look. If you think this is about overdue fines and missing books, you'd better think again. This is about that kid's right to read a book without getting his mind warped!
+    </p>
+    <p class="text-base leading-relaxed text-slate-300">
+      Or maybe that turns you on, Seinfeld; maybe that's how y'get your kicks. You and your good-time buddies.
+    </p>
+  </div>
+
+  <!-- Image Section -->
+  <div class="lg:w-1/3 mt-8 lg:mt-0 lg:ml-10">
+    <img src="{% static 'health/ex3.png' %}" alt="Mountain View" class="rounded-xl shadow-lg object-cover w-full h-64 lg:h-64 transition-transform duration-500 hover:scale-105">
+  </div>
+
+</section>
+<!-- =========================================
+     Modern Library Quote Layout
+========================================= -->
+<section class="flex flex-col lg:flex-row items-center justify-between bg-slate-900 text-slate-100 p-10  shadow-xl">
+  
+  <!-- Text Section -->
+  <div class="lg:w-2/3 space-y-5">
+    <h2 class="text-2xl font-semibold text-blue-400">Library Reflections</h2>
+    <p class="text-base leading-relaxed text-slate-300">
+      Maybe we can live without libraries, people like you and me. Maybe. Sure, we're too old to change the world, but what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve better?
+    </p>
+    <p class="text-base leading-relaxed text-slate-300">
+      Look. If you think this is about overdue fines and missing books, you'd better think again. This is about that kid's right to read a book without getting his mind warped!
+    </p>
+    <p class="text-base leading-relaxed text-slate-300">
+      Or maybe that turns you on, Seinfeld; maybe that's how y'get your kicks. You and your good-time buddies.
+    </p>
+  </div>
+
+  <!-- Image Section -->
+  <div class="lg:w-1/3 mt-8 lg:mt-0 lg:ml-10">
+    <img src="{% static 'health/ex4.png' %}" alt="Mountain View" class="rounded-xl shadow-lg object-cover w-full h-64 lg:h-64 transition-transform duration-500 hover:scale-105">
+  </div>
+
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="bg-slate-900 text-slate-100 p-10 shadow-xl rounded-xl text-center">
+  <h2 class="text-3xl font-bold text-green-400 mb-4">🎉 Order Placed Successfully!</h2>
+  <p class="text-slate-300 mb-6">Thank you, {{ order.user.username }}. Your order for <strong>{{ order.product.name }}</strong> has been placed.</p>
+  <p class="text-slate-400 mb-6">Payment Method: <span class="text-yellow-400 font-semibold">{{ order.payment_status }}</span></p>
+  <p class="text-slate-400">Expected Delivery: <span class="text-green-400 font-semibold">2 days</span></p>
+
+  <a href="{% url "product_list" %}" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
+    Continue Shopping
+  </a>
+</section>
+{% endblock %}

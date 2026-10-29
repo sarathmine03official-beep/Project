@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-3xl mx-auto py-6 px-4 bg-gray-50 min-h-screen">
+
+  <!-- 🛍️ Cart Header -->
+  <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b pb-3">My Cart ({{ cart_items|length }})</h2>
+
+  {% for item in cart_items %}
+  <div class="bg-white rounded-xl shadow-md p-4 mb-5">
+    <div class="flex items-center gap-4">
+      <!-- Product Image -->
+      <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" 
+           class="w-24 h-24 rounded-lg object-cover border">
+
+      <!-- Product Details -->
+      <div class="flex-1">
+        <h3 class="font-semibold text-gray-800 text-lg">{{ item.product.name }}</h3>
+        <p class="text-sm text-gray-500">Size: 6, Black</p>
+        <div class="flex items-center gap-2 mt-1">
+          <span class="text-green-600 font-semibold">₹{{ item.product.price }}</span>
+          <span class="text-gray-400 line-through text-sm">₹{{ item.product.old_price }}</span>
+          <span class="text-green-500 text-sm font-semibold">{{ item.product.discount }}% off</span>
+        </div>
+        <p class="text-xs text-red-600 mt-1">Only few left</p>
+        <p class="text-xs text-gray-500">Delivery by Aug 28, Fri</p>
+      </div>
+
+      <!-- Quantity Selector -->
+      <div class="flex flex-col items-end">
+        <label class="text-sm text-gray-600 mb-1">Qty:</label>
+        <select class="border rounded-md px-2 py-1 text-sm">
+          <option>{{ item.quantity }}</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex justify-between mt-4 border-t pt-3 text-sm font-medium text-gray-700">
+    <a href="{% url 'remove_from_cart' item.product.id %}">
+      <i class="fa fa-trash mr-1"></i>
+      <button class="text-gray-600 hover:text-red-600 transition">🗑 Remove</button></a>
+      <button class="text-gray-600 hover:text-blue-600 transition">💾 Save for later</button>
+      <button class="text-gray-600 hover:text-orange-600 transition">⚡ Buy this now</button>
+    </div>
+  </div>
+  {% empty %}
+  <p class="text-gray-500 text-center mt-10">Your cart is empty.</p>
+  {% endfor %}
+
+  {% comment %} <!-- 💰 Order Summary -->
+  <div class="bg-white rounded-xl shadow-md p-5 mt-6">
+    <div class="flex justify-between text-gray-700 mb-2">
+      <span>Subtotal</span>
+      <span>₹{{ total }}</span>
+    </div>
+    <div class="flex justify-between text-gray-700 mb-2">
+      <span>Shipping</span>
+      <span>₹99</span>
+    </div>
+    <div class="flex justify-between font-semibold text-gray-900 border-t pt-3">
+      <span>Total</span>
+      <span>₹{{ total|add:99 }}</span>
+    </div>
+    <p class="text-green-600 text-sm mt-2">You’ll save ₹188 on this order!</p>
+
+    <button class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-lg mt-4 transition">
+      🛍 Place Order
+    </button>
+  </div> {% endcomment %}
+
+</div>
+{% endblock %}

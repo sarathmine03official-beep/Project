@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-2xl font-bold text-blue-600 mb-4">Health Report</h2>
+
+<p><strong>Blood Sugar:</strong> {{ blood_sugar }} mg/dL</p>
+<p><strong>Blood Pressure:</strong> {{ blood_pressure }} mmHg</p>
+<p><strong>Cholesterol:</strong> {{ cholesterol }} mg/dL</p>
+<p><strong>Status:</strong> {{ status }}</p>
+{% endblock %}

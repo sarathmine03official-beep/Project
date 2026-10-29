@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-100 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full bg-white rounded-xl shadow-xl p-8 border border-gray-200">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl font-bold text-gray-900">🔑 Login to Your Account</h2>
+      <p class="text-gray-600 mt-2">Access your dashboard and manage your health records.</p>
+    </div>
+
+    <form method="POST" class="space-y-6">
+      {% csrf_token %}
+
+      <!-- Login Fields -->
+      <div class="space-y-4">
+        {{ form.as_p }}
+      </div>
+
+      <button type="submit" class="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-200">
+        🚀 Login
+      </button>
+    </form>
+
+    <!-- Register Redirect -->
+    <div class="mt-6 text-center">
+      <p class="text-sm text-gray-600">
+        Don’t have an account?
+        <a href="{% url 'register' %}" class="inline-block bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600 transition">
+          ✨ Register Here
+        </a>
+      </p>
+    </div>
+
+    <!-- Success/Error Messages -->
+    {% if messages %}
+      <div class="mt-6">
+        {% for message in messages %}
+          <div class="bg-green-100 text-green-700 p-3 rounded-lg font-medium">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

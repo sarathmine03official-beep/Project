@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="bg-slate-900 text-slate-100 p-10 shadow-xl rounded-xl">
+
+    <!-- Payment Heading -->
+    <h2 class="text-2xl font-semibold text-blue-400 mb-6">
+        Step 3: Payments
+    </h2>
+
+    <!-- Total Amount -->
+    <div class="bg-slate-800 p-4 rounded-lg mb-6
+                flex justify-between items-center">
+
+        <span class="text-lg font-semibold">Total Amount</span>
+
+        <span class="text-yellow-400 text-xl font-bold">
+            ₹{{ order.total_price }}
+        </span>
+
+    </div>
+
+    <!-- Payment Form -->
+    <form method="POST"
+          action="{% url 'place_order' order.id %}"
+          id="paymentForm">
+
+        {% csrf_token %}
+
+        <!-- Error Message -->
+        <div id="paymentError"
+             class="hidden bg-red-900 text-red-200 p-3
+                    rounded-lg mb-4"
+             role="alert">
+            Please select a payment method before placing your order!
+        </div>
+
+        <!-- Payment Options -->
+        <div class="space-y-4">
+
+            <!-- UPI -->
+            <label class="block bg-slate-800 p-6 rounded-lg
+                          hover:bg-slate-700 transition cursor-pointer">
+
+                <div class="flex items-center space-x-3">
+
+                    <input type="radio"
+                           name="payment_method"
+                           value="upi"
+                           class="accent-blue-500 w-5 h-5">
+
+                    <span class="font-semibold text-lg">
+                        UPI Payment
+                    </span>
+
+                </div>
+
+                <p class="text-green-400 mt-2">
+                    Pay using any UPI app • Get ₹75 cashback
+                </p>
+
+            </label>
+
+            <!-- Cash on Delivery -->
+            <label class="block bg-slate-800 p-6 rounded-lg
+                          hover:bg-slate-700 transition cursor-pointer">
+
+                <div class="flex items-center space-x-3">
+
+                    <input type="radio"
+                           name="payment_method"
+                           value="cod"
+                           class="accent-yellow-400 w-5 h-5">
+
+                    <span class="font-semibold text-lg">
+                        Cash on Delivery
+                    </span>
+
+                </div>
+
+                <p class="text-green-400 mt-2">
+                    Pay when the product is delivered
+                </p>
+
+            </label>
+
+        </div>
+
+        <!-- Place Order Button -->
+        <button type="submit"
+                class="bg-yellow-400 text-black font-semibold
+                       px-8 py-4 rounded-lg hover:bg-yellow-500
+                       transition w-full mt-6">
+
+            Place Order
+
+        </button>
+
+    </form>
+
+</section>
+
+<!-- JavaScript Validation -->
+<script>
+    const paymentForm = document.getElementById("paymentForm");
+    const paymentError = document.getElementById("paymentError");
+
+    paymentForm.addEventListener("submit", function(event) {
+
+        const selectedPayment = document.querySelector(
+            'input[name="payment_method"]:checked'
+        );
+
+        if (!selectedPayment) {
+            event.preventDefault();
+
+            paymentError.classList.remove("hidden");
+
+            paymentError.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        } else {
+            paymentError.classList.add("hidden");
+        }
+
+    });
+
+    // Hide the error message when the user selects an option
+    document.querySelectorAll(
+        'input[name="payment_method"]'
+    ).forEach(function(radio) {
+
+        radio.addEventListener("change", function() {
+            paymentError.classList.add("hidden");
+        });
+
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Book Appointment{% endblock %}
+{% block content %}
+
+<!-- Background -->
+<div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-pink-50 flex items-center justify-center py-10">
+
+  <!-- Glass Card -->
+  <div class="bg-white/30 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/40 p-10 w-full max-w-3xl">
+    <!-- Header -->
+    <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-2 tracking-wide">
+      BOOK APPOINTMENT WITH <span class="text-blue-700">{{ doctor.name }}</span>
+    </h1>
+    <p class="text-center text-gray-600 mb-8 text-lg">{{ doctor.specialization }} | {{ doctor.experience }} </p>
+
+    <!-- Doctor Image -->
+    <div class="flex justify-center mb-6">
+      <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}"
+           class="rounded-2xl shadow-lg w-40 h-40 object-cover border border-gray-300 hover:scale-105 transition duration-300">
+    </div>
+
+    <!-- Form -->
+    <form method="POST" class="space-y-6">
+      {% csrf_token %}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Patient Name -->
+        <div>
+          <label for="patient_name" class="block text-sm font-semibold mb-2 text-gray-700">Patient Name</label>
+          <div class="relative">
+            <input type="text" id="patient_name" name="patient_fullname"
+                   class="w-full p-3 rounded-xl bg-white/70 text-gray-800 placeholder-gray-500 border border-gray-300
+                          focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300"
+                   placeholder="Enter your name">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                 stroke-width="1.5" stroke="currentColor"
+                 class="absolute right-3 top-3 w-5 h-5 text-gray-400">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M15.75 9A3.75 3.75 0 1112 5.25 3.75 3.75 0 0115.75 9zM12 14.25a6.75 6.75 0 00-6.75 6.75h13.5a6.75 6.75 0 00-6.75-6.75z" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Date -->
+        <div>
+          <label for="date" class="block text-sm font-semibold mb-2 text-gray-700">Select Date</label>
+          <div class="relative">
+            <input type="date" id="date" name="appointment_date"
+                   class="w-full p-3 rounded-xl bg-white/70 text-gray-800 border border-gray-300
+                          focus:outline-none focus:ring-2 focus:ring-pink-400 transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                 stroke-width="1.5" stroke="currentColor"
+                 class="absolute right-3 top-3 w-5 h-5 text-gray-400">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M8 7V3m8 4V3m-9 8h10m-11 8h12a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Time -->
+      <div>
+        <label for="time" class="block text-sm font-semibold mb-2 text-gray-700">Preferred Time</label>
+        <div class="relative">
+          <input type="time" id="time" name="appointment_time"
+                 class="w-full p-3 rounded-xl bg-white/70 text-gray-800 border border-gray-300
+                        focus:outline-none focus:ring-2 focus:ring-teal-400 transition duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+               stroke-width="1.5" stroke="currentColor"
+               class="absolute right-3 top-3 w-5 h-5 text-gray-400">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 6v6l4 2m6 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+      </div>
+
+   <div class="text-center mt-8">
+            <a href="{% url 'view_doctor_bookings' doctor.id %}"
+          class="inline-block bg-blue-600 text-white font-semibold py-3 px-4 rounded-xl shadow-lg hover:bg-blue-700 transition">
+          View Appointments
+        </a>
+      </div> 
+
+
+      <!-- Submit Button -->
+      <div class="text-center mt-8">
+        <button type="submit"
+                class="bg-gradient-to-r from-blue-600 to-pink-500 hover:from-pink-600 hover:to-blue-700
+                       text-white font-semibold py-3 px-10 rounded-xl shadow-lg transition-transform
+                       transform hover:scale-105 duration-300">
+          Confirm Appointment
+        </button>
+      </div>
+      
+    </form>
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-500 text-sm mt-8">
+      © 2026 HealthCare Booking System | Design by Sarath
+    </footer>
+  </div>
+</div>
+
+{% endblock %}

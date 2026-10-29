@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📊 Product Sales Dashboard</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-slate-100">
+
+  <section class="min-h-screen p-10">
+    <div class="max-w-5xl mx-auto bg-slate-800/60 backdrop-blur-md rounded-2xl shadow-2xl p-8 border border-slate-700">
+      
+      <!-- Header -->
+      <header class="flex items-center justify-between mb-8">
+        <h2 class="text-3xl font-bold text-blue-400 tracking-wide">📊 Product Sales Dashboard</h2>
+        <span class="text-sm text-slate-400">Updated: {{ last_updated }}</span>
+      </header>
+
+      <!-- Chart -->
+      <div class="relative">
+        <canvas id="salesChart" class="w-full h-80"></canvas>
+      </div>
+
+      <!-- Footer -->
+      <footer class="mt-8 text-center text-slate-400 text-sm">
+        Powered by Django & Chart.js
+      </footer>
+    </div>
+  </section>
+
+  <script>
+    const ctx = document.getElementById('salesChart').getContext('2d');
+    const salesChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: {{ labels|safe }},
+        datasets: [{
+          label: 'Products Sold',
+          data: {{ data|safe }},
+          backgroundColor: [
+            'rgba(59, 130, 246, 0.7)',
+            'rgba(16, 185, 129, 0.7)',
+            'rgba(234, 179, 8, 0.7)',
+            'rgba(239, 68, 68, 0.7)'
+          ],
+          borderColor: 'rgba(255, 255, 255, 0.2)',
+          borderWidth: 1,
+          borderRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: { color: '#cbd5e1' }
+          },
+          title: {
+            display: true,
+            text: 'Sales Overview',
+            color: '#93c5fd',
+            font: { size: 18, weight: 'bold' }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: '#cbd5e1' },
+            grid: { color: 'rgba(255,255,255,0.1)' }
+          },
+          y: {
+            beginAtZero: true,
+            ticks: { color: '#cbd5e1' },
+            grid: { color: 'rgba(255,255,255,0.1)' }
+          }
+        }
+      }
+    });
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

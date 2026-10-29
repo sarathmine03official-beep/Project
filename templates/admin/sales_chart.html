@@ -1,0 +1,38 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<h1 class="text-2xl font-semibold text-blue-400 mb-6">{{ title }}</h1>
+
+<canvas id="salesChart" width="400" height="200"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('salesChart').getContext('2d');
+  const salesChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: {{ labels|safe }},
+      datasets: [{
+        label: 'Products Sold',
+        data: {{ data|safe }},
+        backgroundColor: [
+          'rgba(255, 206, 86, 0.6)',
+          'rgba(75, 192, 192, 0.6)',
+          'rgba(153, 102, 255, 0.6)',
+          'rgba(255, 99, 132, 0.6)'
+        ],
+        borderColor: 'rgba(255, 255, 255, 0.8)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      plugins: {
+        legend: { labels: { color: 'white' } }
+      },
+      scales: {
+        x: { ticks: { color: 'white' } },
+        y: { ticks: { color: 'white' }, beginAtZero: true }
+      }
+    }
+  });
+</script>
+{% endblock %}

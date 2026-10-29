@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% block title %}Schedule Doctor | HealthCare Portal{% endblock %}
+
+{% block content %}
+<div class="container mx-auto my-10 px-4 max-w-3xl">
+  <!-- Breadcrumb / Back button -->
+  <div class="mb-6 flex items-center justify-between">
+    <a href="{% url 'view_appointments' %}" class="text-sm text-blue-600 hover:text-blue-800 flex items-center gap-1 font-medium no-underline">
+      &larr; Back to Appointments
+    </a>
+    <span class="text-xs text-gray-400">Appointment #{{ appointment.id }}</span>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+    <!-- Header Banner -->
+    <div class="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-800 px-8 py-6 text-white">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl">
+          👨‍⚕️
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight">Assign & Schedule Doctor</h2>
+          <p class="text-blue-100 text-sm mt-0.5">Confirm doctor allocation and send an instant SMS notification to the patient</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-8 space-y-8">
+      <!-- Patient & Appointment Summary Card -->
+      <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Patient & Appointment Information</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+          <div>
+            <span class="text-gray-500 text-xs block">Patient Name</span>
+            <strong class="text-gray-900 font-semibold">{{ appointment.name }}</strong>
+          </div>
+          <div>
+            <span class="text-gray-500 text-xs block">Registered Phone</span>
+            <strong class="text-gray-900 font-semibold">{{ appointment.phone }}</strong>
+          </div>
+          <div>
+            <span class="text-gray-500 text-xs block">Requested Department</span>
+            <strong class="text-gray-900 font-semibold">{{ appointment.department }}</strong>
+          </div>
+          <div>
+            <span class="text-gray-500 text-xs block">Preferred Date</span>
+            <span class="text-gray-800">{{ appointment.date }}</span>
+          </div>
+          <div>
+            <span class="text-gray-500 text-xs block">Preferred Time</span>
+            <span class="text-gray-800">{{ appointment.time }}</span>
+          </div>
+          <div>
+            <span class="text-gray-500 text-xs block">Email</span>
+            <span class="text-gray-800 truncate block">{{ appointment.email }}</span>
+          </div>
+        </div>
+        {% if appointment.symptoms %}
+          <div class="mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600">
+            <strong>Reported Symptoms:</strong> {{ appointment.symptoms }}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Scheduling Form -->
+      <form method="POST" class="space-y-6">
+        {% csrf_token %}
+
+        {% if form.errors %}
+          <div class="bg-red-50 border-l-4 border-red-500 p-4 text-sm text-red-700 rounded-r-lg">
+            <strong>Please correct the errors below:</strong>
+            <ul class="mt-1 list-disc list-inside text-xs">
+              {% for field in form %}
+                {% for error in field.errors %}
+                  <li>{{ field.label }}: {{ error }}</li>
+                {% endfor %}
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <!-- Doctor Name -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+              Doctor Name <span class="text-red-500">*</span>
+            </label>
+            {{ form.doctor_name }}
+            <p class="text-[11px] text-gray-400 mt-1">e.g. Dr. Arjun or Dr. Sarah</p>
+          </div>
+
+          <!-- Customer Mobile Number -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+              Patient Mobile Number for SMS <span class="text-red-500">*</span>
+            </label>
+            {{ form.customer_mobile }}
+            <p class="text-[11px] text-gray-400 mt-1">Twilio SMS confirmation will be sent here</p>
+          </div>
+
+          <!-- Department -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+              Department <span class="text-red-500">*</span>
+            </label>
+            {{ form.department }}
+          </div>
+
+          <!-- Floor / Room -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+              Floor / Room Number <span class="text-red-500">*</span>
+            </label>
+            {{ form.floor_number }}
+            <p class="text-[11px] text-gray-400 mt-1">e.g. 2nd Floor, Room 204</p>
+          </div>
+
+          <!-- Schedule Date -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+              Scheduled Date <span class="text-red-500">*</span>
+            </label>
+            {{ form.schedule_date }}
+          </div>
+
+          <!-- Schedule Time -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+              Scheduled Time <span class="text-red-500">*</span>
+            </label>
+            {{ form.schedule_time }}
+          </div>
+
+          <!-- Status -->
+          <div class="md:col-span-2">
+            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+              Status
+            </label>
+            {{ form.status }}
+            <p class="text-[11px] text-blue-600 mt-1.5 font-medium">
+              🔔 Setting status to <strong>Scheduled</strong> sends the Twilio SMS confirmation to the patient automatically.
+            </p>
+          </div>
+        </div>
+
+        <!-- Submit & Actions -->
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-end gap-3 border-t border-gray-100">
+          <a href="{% url 'view_appointments' %}" class="w-full sm:w-auto px-5 py-2.5 text-center text-sm font-semibold text-gray-600 hover:text-gray-800 bg-gray-100 hover:bg-gray-200 rounded-xl transition no-underline">
+            Cancel
+          </a>
+          <button type="submit" class="w-full sm:w-auto px-6 py-2.5 text-center text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl shadow-md hover:shadow-lg transition transform active:scale-95 flex items-center justify-center gap-2">
+            <span>Save Schedule & Send SMS</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  input[type='text'], input[type='date'], input[type='time'], select {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    color: #1f2937;
+    background-color: #ffffff;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  input[type='text']:focus, input[type='date']:focus, input[type='time']:focus, select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  }
+</style>
+{% endblock %}

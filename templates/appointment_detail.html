@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}Appointment Detail{% endblock %}
+{% block content %}
+<div class="bg-white shadow-xl rounded-2xl p-8 max-w-xl mx-auto mt-10 border border-gray-100">
+  <div class="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
+    <div>
+      <h2 class="text-2xl font-bold text-gray-900">Appointment Details</h2>
+      <p class="text-xs text-gray-400">ID: #{{ appointment.id }}</p>
+    </div>
+
+  </div>
+
+  <ul class="space-y-3 text-gray-700 text-sm">
+    <li class="flex justify-between py-1 border-b border-gray-50">
+      <span class="text-gray-500">Patient Name:</span>
+      <strong class="text-gray-900">{{ appointment.name }}</strong>
+    </li>
+    <li class="flex justify-between py-1 border-b border-gray-50">
+      <span class="text-gray-500">Preferred Date:</span>
+      <strong class="text-gray-900">{{ appointment.date }}</strong>
+    </li>
+    <li class="flex justify-between py-1 border-b border-gray-50">
+      <span class="text-gray-500">Preferred Time:</span>
+      <strong class="text-gray-900">{{ appointment.time }}</strong>
+    </li>
+    <li class="flex justify-between py-1 border-b border-gray-50">
+      <span class="text-gray-500">Mobile Phone:</span>
+      <strong class="text-gray-900">{{ appointment.phone }}</strong>
+    </li>
+    <li class="flex justify-between py-1 border-b border-gray-50">
+      <span class="text-gray-500">Email Address:</span>
+      <strong class="text-gray-900">{{ appointment.email }}</strong>
+    </li>
+    <li class="flex justify-between py-1 border-b border-gray-50">
+      <span class="text-gray-500">Department:</span>
+      <strong class="text-gray-900">{{ appointment.department }}</strong>
+    </li>
+    <li class="flex justify-between py-1 border-b border-gray-50">
+      <span class="text-gray-500">Gender:</span>
+      <strong class="text-gray-900">{{ appointment.gender }}</strong>
+    </li>
+    <li class="py-2">
+      <span class="text-gray-500 block mb-1">Reported Symptoms:</span>
+      <p class="bg-gray-50 p-3 rounded-lg text-xs text-gray-700">{{ appointment.symptoms|default:"None reported" }}</p>
+    </li>
+  </ul>
+
+   <di>
+    <a href="{% url 'view_appointments' %}" class="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold text-xs px-5 py-2.5 rounded-xl shadow transition no-underline">
+      &larr; Back to List
+    </a>
+   </div>
+  <!-- Schedule Information -->
+  {% comment %} <div class="mt-6 pt-6 border-t border-gray-200">
+    {% if appointment.schedule %}
+      <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-4">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider">Scheduled Doctor</span>
+          <span class="text-xs bg-emerald-200 text-emerald-900 font-semibold px-2 py-0.5 rounded-full">{{ appointment.schedule.status }}</span>
+        </div>
+        <p class="text-sm font-bold text-gray-900">Dr. {{ appointment.schedule.doctor_name }}</p>
+        <p class="text-xs text-gray-600 mt-1">
+          📅 {{ appointment.schedule.schedule_date }} at {{ appointment.schedule.schedule_time }}
+        </p>
+        <p class="text-xs text-gray-600">
+          📍 Department: {{ appointment.schedule.department }} | Floor: {{ appointment.schedule.floor_number }}
+        </p>
+        <p class="text-xs text-gray-500 mt-1">
+          📱 SMS Notification sent to: <strong>{{ appointment.schedule.customer_mobile }}</strong>
+        </p>
+      </div>
+
+      <div class="flex gap-2">
+        <a href="{% url 'assign_doctor' appointment.id %}" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-center text-xs py-2.5 rounded-xl shadow transition no-underline">
+          ✏️ Edit Doctor Schedule
+        </a>
+      </div>
+    {% else %}
+      <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-4 text-center">
+        <p class="text-xs text-amber-800 font-medium mb-3">No doctor has been scheduled for this appointment yet.</p>
+        <a href="{% url 'assign_doctor' appointment.id %}" class="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold text-xs px-5 py-2.5 rounded-xl shadow transition no-underline">
+          👨‍⚕️ Assign & Schedule Doctor Now
+        </a>
+      </div>
+    {% endif %}
+  </div> {% endcomment %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+{% load humanize %}
+
+<!-- Dashboard Header -->
+<div class="text-center mt-10 mb-8">
+  <h1 class="text-4xl font-bold text-gray-800">🏋️‍♂️ Health & Fitness Dashboard</h1>
+  <p class="text-gray-600 mt-2 text-lg">Track your progress and stay motivated every day!</p>
+
+  <!-- Update Goals Button -->
+  <a href="{% url 'goal_update' %}" 
+     class="inline-block mt-5 px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-200">
+    🎯 Update Goals
+  </a>
+</div>
+
+<!-- Dashboard Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10">
+  <!-- Total Workouts -->
+  <div class="bg-white rounded-xl shadow-md p-5 sm:p-6 border border-gray-200 hover:shadow-lg transition">
+    <div class="flex justify-between items-center mb-3">
+      <h3 class="text-gray-700 font-semibold text-sm sm:text-base">Total Workouts</h3>
+    </div>
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-gray-500 text-xs sm:text-sm">Weighted Score</p>
+        <h2 class="text-3xl sm:text-4xl font-bold {% if stats.total_workout < thresholds.total_workout %} text-red-500 {% else %} text-green-500 {% endif %}">
+          {{ stats.total_workout }}
+        </h2>
+      </div>
+      <img src="{% static 'w-icon/img1.png' %}" alt="Workout Icon" class="w-10 h-10 sm:w-12 sm:h-12">
+    </div>
+  </div>
+
+  <!-- Calories Burned -->
+  <div class="bg-white rounded-xl shadow-md p-5 sm:p-6 border border-gray-200 hover:shadow-lg transition">
+    <div class="flex justify-between items-center mb-3">
+      <h3 class="text-gray-700 font-semibold text-sm sm:text-base">Calories Burned</h3>
+    </div>
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-gray-500 text-xs sm:text-sm">Weighted Score</p>
+        <h2 class="text-3xl sm:text-4xl font-bold {% if stats.calories_burned < thresholds.calories_burned %} text-red-500 {% else %} text-green-500 {% endif %}">
+          {{ stats.calories_burned|intcomma }}
+        </h2>
+      </div>
+      <img src="{% static 'w-icon/img2.png' %}" alt="Calories Icon" class="w-10 h-10 sm:w-12 sm:h-12">
+    </div>
+  </div>
+
+  <!-- Duration -->
+  <div class="bg-white rounded-xl shadow-md p-5 sm:p-6 border border-gray-200 hover:shadow-lg transition">
+    <div class="flex justify-between items-center mb-3">
+      <h3 class="text-gray-700 font-semibold text-sm sm:text-base">Duration (hrs)</h3>
+    </div>
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-gray-500 text-xs sm:text-sm">Weighted Score</p>
+        <h2 class="text-3xl sm:text-4xl font-bold {% if stats.duration_hrs < thresholds.duration_hrs %} text-red-500 {% else %} text-green-500 {% endif %}">
+          {{ stats.duration_hrs }}
+        </h2>
+      </div>
+      <img src="{% static 'w-icon/img3.png' %}" alt="Duration Icon" class="w-10 h-10 sm:w-12 sm:h-12">
+    </div>
+  </div>
+
+  <!-- Streak Days -->
+  <div class="bg-white rounded-xl shadow-md p-5 sm:p-6 border border-gray-200 hover:shadow-lg transition">
+    <div class="flex justify-between items-center mb-3">
+      <h3 class="text-gray-700 font-semibold text-sm sm:text-base">Streak Days</h3>
+    </div>
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-gray-500 text-xs sm:text-sm">Weighted Score</p>
+        <h2 class="text-3xl sm:text-4xl font-bold {% if stats.streak_days < thresholds.streak_days %} text-red-500 {% else %} text-green-500 {% endif %}">
+          {{ stats.streak_days }}
+        </h2>
+      </div>
+      <img src="{% static 'w-icon/img4.png' %}" alt="Streak Icon" class="w-10 h-10 sm:w-12 sm:h-12">
+    </div>
+  </div>
+</div>
+
+<!-- Centered Slide Images -->
+<div class="flex justify-center items-center mb-10">
+  <div class="relative w-[700px] h-[300px] overflow-hidden rounded-3xl shadow-2xl group">
+    <!-- Front Image -->
+    <img src="{% static 'd-img/img1.png' %}" 
+         alt="Front Image" 
+         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:translate-x-[-100%]" />
+
+    <!-- Slide Panel -->
+    <div class="absolute inset-0 w-full h-full bg-gray-900/80 flex items-center justify-center transition-transform duration-700 translate-x-[100%] group-hover:translate-x-0">
+      <img src="{% static 'd-img/img2.png' %}" 
+           alt="Inner Image" 
+           class="w-full h-full object-cover object-contain rounded-xl shadow-lg" />
+    </div>
+  </div>
+</div>
+
+
+
+<div class="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl p-6 mt-6">
+  <div class="flex justify-between items-center mb-4">
+    <h3 class="text-2xl font-bold text-gray-800">Exercise Records</h3>
+    <a href="{% url 'add_activity' %}" 
+       class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition duration-300 no-underline">
+       + Add Activity
+    </a>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full border border-gray-200 rounded-lg text-sm sm:text-base">
+      <thead class="bg-indigo-50">
+        <tr>
+          <th class="px-4 py-3 text-left text-gray-700 font-semibold">Date</th>
+          <th class="px-4 py-3 text-left text-gray-700 font-semibold">Exercise</th>
+          <th class="px-4 py-3 text-left text-gray-700 font-semibold">Duration (hrs)</th>
+          <th class="px-4 py-3 text-left text-gray-700 font-semibold">Calories</th>
+          <th class="px-4 py-3 text-center text-gray-700 font-semibold">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody class="divide-y divide-gray-200">
+        {% for activity in recent_activities %}
+        <tr class="hover:bg-indigo-50 transition">
+          <td class="px-4 py-3">{{ activity.date }}</td>
+          <td class="px-4 py-3">{{ activity.exercise }}</td>
+          <td class="px-4 py-3">{{ activity.duration }}</td>
+          <td class="px-4 py-3">{{ activity.calories }}</td>
+          <td class="px-4 py-3 flex justify-center gap-3">
+            <a href="{% url 'edit_activity' activity.id %}" 
+               class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition no-underline">
+               Edit
+            </a>
+            <form action="{% url 'delete_activity' activity.id %}" method="POST" 
+                  onsubmit="return confirm('Are you sure you want to delete this activity?')">
+              {% csrf_token %}
+              <button type="submit" 
+                      class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition">
+                Delete
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

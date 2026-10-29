@@ -1,0 +1,1136 @@
+ {% extends "base.html" %} 
+{% load static %}
+{% block title %}{{title}}{% endblock %}
+ {% block content %}
+
+{% load static %}
+
+<!-- =========================================================
+     HOSPITAL SPECIALTIES / SERVICES SECTION
+========================================================= -->
+
+<section class="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-white py-14 sm:py-16 lg:py-20">
+
+    <!-- Background Decoration -->
+    <div class="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-blue-100/40 blur-3xl"></div>
+
+    <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <!-- =================================================
+             SECTION HEADER
+        ================================================== -->
+
+        <div class="mx-auto mb-10 max-w-3xl text-center sm:mb-12 lg:mb-14">
+
+            <!-- Small Heading -->
+            <div class="mb-4 flex items-center justify-center gap-3">
+
+                <span class="h-[2px] w-8 rounded-full bg-blue-500 sm:w-10"></span>
+
+                <span class="text-xs font-bold uppercase tracking-[0.22em] text-blue-500 sm:text-sm">
+                    Our Specialties
+                </span>
+
+                <span class="h-[2px] w-8 rounded-full bg-blue-500 sm:w-10"></span>
+
+            </div>
+
+            <!-- Main Heading -->
+            <h2 class="text-3xl font-extrabold leading-tight tracking-tight text-slate-800 sm:text-4xl lg:text-5xl">
+                Expert Care in Every
+                <span class="text-blue-600">
+                    Specialty
+                </span>
+            </h2>
+
+            <!-- Subtitle -->
+            <p class="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">
+                Advanced facilities, experienced doctors, and compassionate care
+                — all under one roof.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             SERVICES GRID
+        ================================================== -->
+
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
+
+
+            <!-- =================================================
+                 CARD 1 - CARDIOLOGY
+            ================================================== -->
+
+            <div class="group relative overflow-hidden rounded-[22px] border border-slate-100 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(15,23,42,0.12)]">
+
+                <!-- Image Area -->
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="{% static 'service/h-f.png' %}"
+                        alt="Cardiology"
+                        class="h-48 w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-52 lg:h-44 xl:h-48"
+                    >
+
+                    <!-- Image Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+
+                    <!-- Floating Icon -->
+                    <div class="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-full border-4 border-white bg-white shadow-lg sm:h-12 sm:w-12">
+
+                        <span class="text-xl text-red-500">
+                            ❤️
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Specialty Color Line -->
+                <div class="h-1 bg-red-500"></div>
+
+
+                <!-- Card Content -->
+                <div class="p-5 sm:p-6">
+
+                    <!-- Title -->
+                    <h3 class="text-xl font-bold text-slate-800 transition-colors duration-300 group-hover:text-red-500">
+                        Cardiology
+                    </h3>
+
+                    <!-- Description -->
+                    <p class="mt-2 min-h-[48px] text-sm leading-6 text-slate-500">
+                        Advanced heart care with modern diagnostics and treatments.
+                    </p>
+
+
+                    <!-- Services -->
+                    <ul class="mt-4 space-y-2.5">
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-red-500 text-[9px] text-white">
+                                ✓
+                            </span>
+                            Heart Consultations
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-red-500 text-[9px] text-white">
+                                ✓
+                            </span>
+                            Echocardiography
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-red-500 text-[9px] text-white">
+                                ✓
+                            </span>
+                            Angiography
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-red-500 text-[9px] text-white">
+                                ✓
+                            </span>
+                            Cardiac Rehabilitation
+                        </li>
+
+                    </ul>
+
+
+                    <!-- Learn More -->
+                    <div class="mt-6">
+
+                        <a
+                            href="#"
+                            class="flex w-full items-center justify-center gap-2 rounded-full border border-red-400 px-4 py-2.5 text-sm font-semibold text-red-500 transition-all duration-300 hover:bg-red-500 hover:text-white"
+                        >
+                            Learn More
+
+                            <span class="text-lg leading-none transition-transform duration-300 group-hover:translate-x-1">
+                                →
+                            </span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CARD 2 - NEUROLOGY
+            ================================================== -->
+
+            <div class="group relative overflow-hidden rounded-[22px] border border-slate-100 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(15,23,42,0.12)]">
+
+                <!-- Image -->
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="{% static 'service/h-2.png' %}"
+                        alt="Neurology"
+                        class="h-48 w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-52 lg:h-44 xl:h-48"
+                    >
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+
+                    <!-- Floating Icon -->
+                    <div class="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-full border-4 border-white bg-white shadow-lg sm:h-12 sm:w-12">
+
+                        <span class="text-xl text-blue-500">
+                            🧠
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Blue Line -->
+                <div class="h-1 bg-blue-500"></div>
+
+
+                <div class="p-5 sm:p-6">
+
+                    <h3 class="text-xl font-bold text-slate-800 transition-colors duration-300 group-hover:text-blue-500">
+                        Neurology
+                    </h3>
+
+                    <p class="mt-2 min-h-[48px] text-sm leading-6 text-slate-500">
+                        Comprehensive brain and nervous system care.
+                    </p>
+
+
+                    <ul class="mt-4 space-y-2.5">
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-blue-500 text-[9px] text-white">
+                                ✓
+                            </span>
+                            Neurological Consultation
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-blue-500 text-[9px] text-white">
+                                ✓
+                            </span>
+                            EEG & Brain Mapping
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-blue-500 text-[9px] text-white">
+                                ✓
+                            </span>
+                            Stroke Management
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-blue-500 text-[9px] text-white">
+                                ✓
+                            </span>
+                            Epilepsy Treatment
+                        </li>
+
+                    </ul>
+
+
+                    <div class="mt-6">
+
+                        <a
+                            href="#"
+                            class="flex w-full items-center justify-center gap-2 rounded-full border border-blue-400 px-4 py-2.5 text-sm font-semibold text-blue-500 transition-all duration-300 hover:bg-blue-500 hover:text-white"
+                        >
+                            Learn More
+
+                            <span class="text-lg leading-none transition-transform duration-300 group-hover:translate-x-1">
+                                →
+                            </span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CARD 3 - ORTHOPEDICS
+            ================================================== -->
+
+            <div class="group relative overflow-hidden rounded-[22px] border border-slate-100 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(15,23,42,0.12)]">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="{% static 'service/h-3.png' %}"
+                        alt="Orthopedics"
+                        class="h-48 w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-52 lg:h-44 xl:h-48"
+                    >
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+
+                    <div class="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-full border-4 border-white bg-white shadow-lg sm:h-12 sm:w-12">
+
+                        <span class="text-xl text-emerald-500">
+                            🦴
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="h-1 bg-emerald-500"></div>
+
+
+                <div class="p-5 sm:p-6">
+
+                    <h3 class="text-xl font-bold text-slate-800 transition-colors duration-300 group-hover:text-emerald-500">
+                        Orthopedics
+                    </h3>
+
+                    <p class="mt-2 min-h-[48px] text-sm leading-6 text-slate-500">
+                        Bone, joint, and spine treatments with expert surgeons.
+                    </p>
+
+
+                    <ul class="mt-4 space-y-2.5">
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[9px] text-white">
+                                ✓
+                            </span>
+                            Joint Replacement
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[9px] text-white">
+                                ✓
+                            </span>
+                            Spine Care
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[9px] text-white">
+                                ✓
+                            </span>
+                            Sports Injury
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[9px] text-white">
+                                ✓
+                            </span>
+                            Arthroscopy
+                        </li>
+
+                    </ul>
+
+
+                    <div class="mt-6">
+
+                        <a
+                            href="#"
+                            class="flex w-full items-center justify-center gap-2 rounded-full border border-emerald-400 px-4 py-2.5 text-sm font-semibold text-emerald-500 transition-all duration-300 hover:bg-emerald-500 hover:text-white"
+                        >
+                            Learn More
+
+                            <span class="text-lg leading-none transition-transform duration-300 group-hover:translate-x-1">
+                                →
+                            </span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CARD 4 - PEDIATRICS
+            ================================================== -->
+
+            <div class="group relative overflow-hidden rounded-[22px] border border-slate-100 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(15,23,42,0.12)]">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="{% static 'service/h-4.png' %}"
+                        alt="Pediatrics"
+                        class="h-48 w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-52 lg:h-44 xl:h-48"
+                    >
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+
+                    <div class="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-full border-4 border-white bg-white shadow-lg sm:h-12 sm:w-12">
+
+                        <span class="text-xl text-purple-500">
+                            👶
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="h-1 bg-purple-500"></div>
+
+
+                <div class="p-5 sm:p-6">
+
+                    <h3 class="text-xl font-bold text-slate-800 transition-colors duration-300 group-hover:text-purple-500">
+                        Pediatrics
+                    </h3>
+
+                    <p class="mt-2 min-h-[48px] text-sm leading-6 text-slate-500">
+                        Specialized care for infants, children, and adolescents.
+                    </p>
+
+
+                    <ul class="mt-4 space-y-2.5">
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-purple-500 text-[9px] text-white">
+                                ✓
+                            </span>
+                            Child Health Checkups
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-purple-500 text-[9px] text-white">
+                                ✓
+                            </span>
+                            Vaccination
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-purple-500 text-[9px] text-white">
+                                ✓
+                            </span>
+                            Growth & Development
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-purple-500 text-[9px] text-white">
+                                ✓
+                            </span>
+                            Adolescent Care
+                        </li>
+
+                    </ul>
+
+
+                    <div class="mt-6">
+
+                        <a
+                            href="#"
+                            class="flex w-full items-center justify-center gap-2 rounded-full border border-purple-400 px-4 py-2.5 text-sm font-semibold text-purple-500 transition-all duration-300 hover:bg-purple-500 hover:text-white"
+                        >
+                            Learn More
+
+                            <span class="text-lg leading-none transition-transform duration-300 group-hover:translate-x-1">
+                                →
+                            </span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CARD 5 - ONCOLOGY
+            ================================================== -->
+
+            <div class="group relative overflow-hidden rounded-[22px] border border-slate-100 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(15,23,42,0.12)]">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="{% static 'service/h-5.png' %}"
+                        alt="Oncology"
+                        class="h-48 w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-52 lg:h-44 xl:h-48"
+                    >
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+
+                    <div class="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-full border-4 border-white bg-white shadow-lg sm:h-12 sm:w-12">
+
+                        <span class="text-xl text-pink-500">
+                            ✚
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="h-1 bg-pink-500"></div>
+
+                <div class="p-5 sm:p-6">
+
+                    <h3 class="text-xl font-bold text-slate-800 transition-colors duration-300 group-hover:text-pink-500">
+                        Oncology
+                    </h3>
+
+                    <p class="mt-2 min-h-[48px] text-sm leading-6 text-slate-500">
+                        Cancer diagnosis, treatment, and patient support programs.
+                    </p>
+
+                    <ul class="mt-4 space-y-2.5">
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-pink-500 text-[9px] text-white">✓</span>
+                            Cancer Screening
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-pink-500 text-[9px] text-white">✓</span>
+                            Chemotherapy
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-pink-500 text-[9px] text-white">✓</span>
+                            Oncology Consultation
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-pink-500 text-[9px] text-white">✓</span>
+                            Patient Support
+                        </li>
+
+                    </ul>
+
+                    <div class="mt-6">
+
+                        <a
+                            href="#"
+                            class="flex w-full items-center justify-center gap-2 rounded-full border border-pink-400 px-4 py-2.5 text-sm font-semibold text-pink-500 transition-all duration-300 hover:bg-pink-500 hover:text-white"
+                        >
+                            Learn More
+                            <span class="text-lg leading-none transition-transform duration-300 group-hover:translate-x-1">→</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CARD 6 - DERMATOLOGY
+            ================================================== -->
+
+            <div class="group relative overflow-hidden rounded-[22px] border border-slate-100 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(15,23,42,0.12)]">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="{% static 'service/h-6.png' %}"
+                        alt="Dermatology"
+                        class="h-48 w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-52 lg:h-44 xl:h-48"
+                    >
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+
+                    <div class="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-full border-4 border-white bg-white shadow-lg sm:h-12 sm:w-12">
+
+                        <span class="text-xl text-cyan-500">
+                            ✨
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="h-1 bg-cyan-500"></div>
+
+                <div class="p-5 sm:p-6">
+
+                    <h3 class="text-xl font-bold text-slate-800 transition-colors duration-300 group-hover:text-cyan-500">
+                        Dermatology
+                    </h3>
+
+                    <p class="mt-2 min-h-[48px] text-sm leading-6 text-slate-500">
+                        Skin care treatments and advanced cosmetic procedures.
+                    </p>
+
+                    <ul class="mt-4 space-y-2.5">
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-500 text-[9px] text-white">✓</span>
+                            Skin Consultation
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-500 text-[9px] text-white">✓</span>
+                            Acne Treatment
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-500 text-[9px] text-white">✓</span>
+                            Hair & Scalp Care
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-500 text-[9px] text-white">✓</span>
+                            Cosmetic Procedures
+                        </li>
+
+                    </ul>
+
+                    <div class="mt-6">
+
+                        <a
+                            href="#"
+                            class="flex w-full items-center justify-center gap-2 rounded-full border border-cyan-400 px-4 py-2.5 text-sm font-semibold text-cyan-500 transition-all duration-300 hover:bg-cyan-500 hover:text-white"
+                        >
+                            Learn More
+                            <span class="text-lg leading-none transition-transform duration-300 group-hover:translate-x-1">→</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CARD 7 - EMERGENCY CARE
+            ================================================== -->
+
+            <div class="group relative overflow-hidden rounded-[22px] border border-slate-100 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(15,23,42,0.12)]">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="{% static 'service/h-7.png' %}"
+                        alt="Emergency Care"
+                        class="h-48 w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-52 lg:h-44 xl:h-48"
+                    >
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+
+                    <div class="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-full border-4 border-white bg-white shadow-lg sm:h-12 sm:w-12">
+
+                        <span class="text-xl text-orange-500">
+                            🚑
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="h-1 bg-orange-500"></div>
+
+                <div class="p-5 sm:p-6">
+
+                    <h3 class="text-xl font-bold text-slate-800 transition-colors duration-300 group-hover:text-orange-500">
+                        Emergency Care
+                    </h3>
+
+                    <p class="mt-2 min-h-[48px] text-sm leading-6 text-slate-500">
+                        24/7 emergency response with advanced medical facilities.
+                    </p>
+
+                    <ul class="mt-4 space-y-2.5">
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-orange-500 text-[9px] text-white">✓</span>
+                            24/7 Emergency Care
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-orange-500 text-[9px] text-white">✓</span>
+                            Trauma Care
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-orange-500 text-[9px] text-white">✓</span>
+                            Critical Care
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-orange-500 text-[9px] text-white">✓</span>
+                            Ambulance Support
+                        </li>
+
+                    </ul>
+
+                    <div class="mt-6">
+
+                        <a
+                            href="#"
+                            class="flex w-full items-center justify-center gap-2 rounded-full border border-orange-400 px-4 py-2.5 text-sm font-semibold text-orange-500 transition-all duration-300 hover:bg-orange-500 hover:text-white"
+                        >
+                            Learn More
+                            <span class="text-lg leading-none transition-transform duration-300 group-hover:translate-x-1">→</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CARD 8 - RADIOLOGY
+            ================================================== -->
+
+            <div class="group relative overflow-hidden rounded-[22px] border border-slate-100 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.06)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(15,23,42,0.12)]">
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="{% static 'service/h-8.png' %}"
+                        alt="Radiology"
+                        class="h-48 w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-52 lg:h-44 xl:h-48"
+                    >
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+
+                    <div class="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-full border-4 border-white bg-white shadow-lg sm:h-12 sm:w-12">
+
+                        <span class="text-xl text-indigo-500">
+                            🔬
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="h-1 bg-indigo-500"></div>
+
+                <div class="p-5 sm:p-6">
+
+                    <h3 class="text-xl font-bold text-slate-800 transition-colors duration-300 group-hover:text-indigo-500">
+                        Radiology
+                    </h3>
+
+                    <p class="mt-2 min-h-[48px] text-sm leading-6 text-slate-500">
+                        Modern imaging and accurate diagnostic services.
+                    </p>
+
+                    <ul class="mt-4 space-y-2.5">
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-indigo-500 text-[9px] text-white">✓</span>
+                            MRI Scan
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-indigo-500 text-[9px] text-white">✓</span>
+                            CT Scan
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-indigo-500 text-[9px] text-white">✓</span>
+                            Digital X-Ray
+                        </li>
+
+                        <li class="flex items-center gap-2 text-sm text-slate-600">
+                            <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-indigo-500 text-[9px] text-white">✓</span>
+                            Ultrasound
+                        </li>
+
+                    </ul>
+
+                    <div class="mt-6">
+
+                        <a
+                            href="#"
+                            class="flex w-full items-center justify-center gap-2 rounded-full border border-indigo-400 px-4 py-2.5 text-sm font-semibold text-indigo-500 transition-all duration-300 hover:bg-indigo-500 hover:text-white"
+                        >
+                            Learn More
+                            <span class="text-lg leading-none transition-transform duration-300 group-hover:translate-x-1">→</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PARALLAX HERO HEADER -->
+<section
+  class="relative min-h-screen overflow-hidden bg-slate-950"
+  style="
+    background-image:
+      linear-gradient(90deg, rgba(3, 18, 45, 0.88) 0%, rgba(8, 45, 82, 0.62) 45%, rgba(0, 30, 65, 0.20) 100%),
+      url('/path-to-your-image.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  "
+>
+  <!-- Soft blue glow -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl"></div>
+    <div class="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-blue-500/15 blur-3xl"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="relative z-10 flex min-h-screen items-center px-6 py-20 sm:px-10 md:px-16 lg:px-24">
+
+    <div class="max-w-3xl">
+
+      <!-- Small Badge -->
+      <div
+        class="mb-6 inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-medium text-cyan-100 backdrop-blur-md"
+      >
+        <span class="h-2.5 w-2.5 animate-pulse rounded-full bg-cyan-400"></span>
+
+        Smart Healthcare Navigation
+      </div>
+
+      <!-- Heading -->
+      <h1
+        class="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-white
+               sm:text-5xl md:text-6xl lg:text-7xl"
+      >
+        Mapping Every
+        <span
+          class="bg-gradient-to-r from-cyan-300 via-blue-300 to-white bg-clip-text text-transparent"
+        >
+          Hospital Network
+        </span>
+      </h1>
+
+      <!-- Description -->
+      <p
+        class="max-w-2xl text-base leading-8 text-blue-100/90
+               sm:text-lg md:text-xl"
+      >
+        Our system maps each hospital and clinic with precision — from
+        departments to emergency zones — ensuring seamless patient navigation
+        and optimized healthcare delivery.
+      </p>
+
+      <!-- Buttons -->
+      <div class="mt-9 flex flex-wrap items-center gap-4">
+
+        <!-- Primary -->
+        <a
+          href="#learn-more"
+          class="group inline-flex items-center gap-3 rounded-xl
+                 border border-blue-300/30
+                 bg-blue-500/90 px-7 py-3.5
+                 font-semibold text-white
+                 shadow-[0_10px_35px_rgba(37,99,235,0.35)]
+                 backdrop-blur-md
+                 transition-all duration-300
+                 hover:-translate-y-1
+                 hover:bg-blue-500
+                 hover:shadow-[0_15px_45px_rgba(37,99,235,0.5)]"
+        >
+          Learn More
+
+          <svg
+            class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M5 12h14M13 6l6 6-6 6"
+            />
+          </svg>
+        </a>
+
+        <!-- Secondary -->
+        <a
+          href="#departments"
+          class="inline-flex items-center rounded-xl
+                 border border-white/25
+                 bg-white/10 px-7 py-3.5
+                 font-semibold text-white
+                 backdrop-blur-md
+                 transition-all duration-300
+                 hover:-translate-y-1
+                 hover:bg-white/20"
+        >
+          Explore Departments
+        </a>
+
+      </div>
+
+      <!-- Small Stats -->
+      <div class="mt-12 flex flex-wrap gap-8 border-t border-white/15 pt-7">
+
+        <div>
+          <div class="text-2xl font-bold text-white">24/7</div>
+          <div class="mt-1 text-sm text-blue-200">Healthcare Access</div>
+        </div>
+
+        <div class="hidden h-10 w-px bg-white/20 sm:block"></div>
+
+        <div>
+          <div class="text-2xl font-bold text-white">100+</div>
+          <div class="mt-1 text-sm text-blue-200">Hospital Services</div>
+        </div>
+
+        <div class="hidden h-10 w-px bg-white/20 sm:block"></div>
+
+        <div>
+          <div class="text-2xl font-bold text-white">Smart</div>
+          <div class="mt-1 text-sm text-blue-200">Patient Navigation</div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Fade -->
+  <div
+    class="absolute bottom-0 left-0 right-0 h-40
+           bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"
+  ></div>
+
+  <!-- Scroll Indicator -->
+  <div
+    class="absolute bottom-7 left-1/2 z-20 hidden -translate-x-1/2
+           flex-col items-center gap-2 text-xs text-blue-100/70 md:flex"
+  >
+    <span>Scroll to explore</span>
+
+    <div
+      class="flex h-10 w-6 justify-center rounded-full
+             border border-white/30 pt-2"
+    >
+      <span class="h-2 w-1 rounded-full bg-cyan-300 animate-bounce"></span>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- NEXT SECTION -->
+<section
+  id="departments"
+  class="relative overflow-hidden bg-slate-950 px-6 py-24 md:px-12 lg:px-20"
+>
+  <div class="mx-auto max-w-7xl">
+
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+
+      <!-- Left Content -->
+      <div>
+        <span
+          class="inline-block rounded-full border border-cyan-400/20
+                 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-cyan-300"
+        >
+          Connected Healthcare
+        </span>
+
+        <h2
+          class="mt-5 text-3xl font-bold text-white sm:text-4xl"
+        >
+          One Connected System
+          <span class="text-cyan-300">
+            for Every Patient
+          </span>
+        </h2>
+
+        <p class="mt-5 max-w-xl text-lg leading-8 text-slate-300">
+          Connect departments, emergency zones and healthcare services
+          through one intelligent navigation experience.
+        </p>
+      </div>
+
+      <!-- Right Glass Card -->
+      <div
+        class="rounded-3xl border border-white/10
+               bg-white/10 p-8
+               shadow-2xl backdrop-blur-xl"
+      >
+
+        <div class="flex items-start gap-5">
+
+          <div
+            class="flex h-14 w-14 shrink-0 items-center justify-center
+                   rounded-2xl bg-cyan-400/15
+                   text-cyan-300"
+          >
+            <svg
+              class="h-7 w-7"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 3v18M3 12h18"
+              />
+              <circle cx="12" cy="12" r="9"/>
+            </svg>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-white">
+              Intelligent Hospital Mapping
+            </h3>
+
+            <p class="mt-2 leading-7 text-slate-300">
+              Quickly locate departments, emergency services,
+              diagnostic units and patient support facilities.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- Parallax Section 1 -->
+<section class="bg-[url('{% static "paralax/medicine1.png" %}')] 
+  bg-cover bg-center bg-fixed w-full 
+  h-[300px] sm:h-[500px] lg:h-[600px] flex items-center justify-start">
+  <div class="bg-black/50 text-white 
+              p-3 sm:p-6 lg:p-8 
+              rounded-xl 
+              w-[85%] sm:w-[70%] lg:w-[45%] 
+              mx-4 sm:ml-10 
+              flex flex-col justify-center h-[85%] sm:h-[80%] lg:h-[75%] overflow-hidden">
+    <h2 class="text-lg sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4 leading-tight">
+      Mapping Every Hospital Network
+    </h2>
+    <p class="text-xs sm:text-sm lg:text-base leading-relaxed">
+      Our system maps each hospital and clinic with precision — from departments to emergency zones — 
+      ensuring seamless patient navigation and optimized healthcare delivery.
+    </p>
+  </div>
+</section>
+
+<!-- Parallax Section 2 -->
+<section class="bg-[url('{% static "paralax/medicine2.png" %}')] 
+  bg-cover bg-center bg-fixed w-full 
+  h-[300px] sm:h-[500px] lg:h-[600px] flex items-center justify-end">
+  <div class="bg-white/70 text-gray-900 
+              p-3 sm:p-6 lg:p-8 
+              rounded-xl 
+              w-[85%] sm:w-[70%] lg:w-[45%] 
+              mr-4 sm:mr-10 
+              flex flex-col justify-center h-[85%] sm:h-[80%] lg:h-[75%] overflow-hidden">
+    <h2 class="text-lg sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4 leading-tight">
+      Monitoring Every Patient
+    </h2>
+    <p class="text-xs sm:text-sm lg:text-base leading-relaxed">
+      Advanced AI‑powered sensors track vital signs and movements, 
+      helping doctors respond instantly to emergencies and improve patient outcomes.
+    </p>
+  </div>
+</section>
+
+<!-- Parallax Section 3 -->
+<section class="bg-[url('{% static "paralax/medicine3.png" %}')] 
+  bg-cover bg-center bg-fixed w-full 
+  h-[300px] sm:h-[500px] lg:h-[600px] flex items-center justify-start">
+  <div class="bg-blue-900/60 text-white 
+              p-3 sm:p-6 lg:p-8 
+              rounded-xl 
+              w-[85%] sm:w-[70%] lg:w-[45%] 
+              ml-4 sm:ml-10 
+              flex flex-col justify-center h-[85%] sm:h-[80%] lg:h-[75%] overflow-hidden">
+    <h2 class="text-lg sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4 leading-tight">
+      Planning for Safer Treatments
+    </h2>
+    <p class="text-xs sm:text-sm lg:text-base leading-relaxed">
+      Our AI system analyzes medical data to plan precise treatment paths, 
+      minimizing risks and ensuring the safest outcomes for every patient.
+    </p>
+  </div>
+</section>
+
+<!-- Parallax Section 4 -->
+<section class="bg-[url('{% static "paralax/medicine4.png" %}')] 
+  bg-cover bg-center bg-fixed w-full 
+  h-[300px] sm:h-[500px] lg:h-[600px] flex items-center justify-end">
+  <div class="bg-white/70 text-gray-900 
+              p-3 sm:p-6 lg:p-8 
+              rounded-xl 
+              w-[85%] sm:w-[70%] lg:w-[45%] 
+              mr-4 sm:mr-10 
+              flex flex-col justify-center h-[85%] sm:h-[80%] lg:h-[75%] overflow-hidden">
+    <h2 class="text-lg sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4 leading-tight">
+      Smart Diagnostics
+    </h2>
+    <p class="text-xs sm:text-sm lg:text-base leading-relaxed">
+      From imaging to lab analysis, our smart diagnostic tools detect patterns 
+      and anomalies faster than ever, empowering doctors with real‑time insights.
+    </p>
+  </div>
+</section>
+
+<!-- Parallax Section 5 -->
+<section class="bg-[url('{% static "paralax/medicine5.png" %}')] 
+  bg-cover bg-center bg-fixed w-full 
+  h-[300px] sm:h-[500px] lg:h-[600px] flex items-center justify-start">
+  <div class="bg-blue-900/60 text-white 
+              p-3 sm:p-6 lg:p-8 
+              rounded-xl 
+              w-[85%] sm:w-[70%] lg:w-[45%] 
+              ml-4 sm:ml-10 
+              flex flex-col justify-center h-[85%] sm:h-[80%] lg:h-[75%] overflow-hidden">
+    <h2 class="text-lg sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4 leading-tight">
+      Connected Healthcare
+    </h2>
+    <p class="text-xs sm:text-sm lg:text-base leading-relaxed">
+      Hospitals, pharmacies, and labs are interconnected through secure networks, 
+      enabling faster communication and coordinated care for every patient.
+    </p>
+  </div>
+</section>
+
+<!-- Parallax Section 6 -->
+<section class="bg-[url('{% static "paralax/medicine6.png" %}')]
+  bg-cover bg-center bg-fixed w-full 
+  h-[300px] sm:h-[500px] lg:h-[600px] flex items-center justify-end">
+  <div class="bg-white/70 text-gray-900 
+              p-3 sm:p-6 lg:p-8 
+              rounded-xl 
+              w-[85%] sm:w-[70%] lg:w-[45%] 
+              mr-4 sm:mr-10 
+              flex flex-col justify-center h-[85%] sm:h-[80%] lg:h-[75%] overflow-hidden">
+    <h2 class="text-lg sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4 leading-tight">
+      Future of Medicine
+    </h2>
+    <p class="text-xs sm:text-sm lg:text-base leading-relaxed">
+      Integrating robotics, AI, and telemedicine, we’re shaping the next generation 
+      of healthcare — efficient, accessible, and human‑centered.
+    </p>
+  </div>
+</section>
+
+
+
+{% endblock %}

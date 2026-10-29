@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📊 Product Sales Dashboard</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-slate-100">
+{% block object-tools %}
+  <div class="flex gap-4 justify-center mb-6 mt-6">
+    <!-- Dashboard Button -->
+    <a href="dashboard/" 
+       class="inline-flex items-center px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-200">
+      📊 <span class="ml-2">Dashboard</span>
+    </a>
+
+    <!-- Sales Chart Button -->
+    <a href="sales-chart/" 
+       class="inline-flex items-center px-4 py-2 rounded-lg bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-200">
+      📈 <span class="ml-2">Sales Chart</span>
+    </a>
+  </div>
+{% endblock %}
+</body>
+</html>
