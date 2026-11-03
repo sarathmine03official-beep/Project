@@ -156,6 +156,17 @@ CORS_ALLOW_ALL_ORIGINS = True
 OPENAI_API_KEY = (os.getenv("OPENAI_API_KEY") or "").strip()
 
 
+## Deployment Method
+
+# DEBUG-ai false aakkunga production-kku
+DEBUG = False
+
+# Unga render URL-ai allow seyyavendum (e.g., '.onrender.com' podalam)
+ALLOWED_HOSTS = ['.onrender.com', '127.0.0.1']
+
+# Static files-kku 
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
  
 
 
