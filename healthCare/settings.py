@@ -61,7 +61,7 @@ ROOT_URLCONF = 'healthCare.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,10 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS= [os.path.join(BASE_DIR, 'static')]
 
-MEDIA_URl ='/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT =os.path.join(BASE_DIR, 'media')
 
 # Product Model create
@@ -159,10 +159,14 @@ OPENAI_API_KEY = (os.getenv("OPENAI_API_KEY") or "").strip()
 ## Deployment Method
 
 # DEBUG-ai false aakkunga production-kku
-DEBUG = False
+DEBUG = os.getenv("DEBUG", "True").strip().lower() in ("true", "1", "yes")
 
 # Unga render URL-ai allow seyyavendum (e.g., '.onrender.com' podalam)
-ALLOWED_HOSTS = ['.onrender.com', '127.0.0.1']
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+else:
+    allowed_env = os.getenv("ALLOWED_HOSTS", ".onrender.com,127.0.0.1,localhost").split(",")
+    ALLOWED_HOSTS = [h.strip() for h in allowed_env if h.strip()]
 
 # Static files-kku 
 STATIC_URL = '/static/'

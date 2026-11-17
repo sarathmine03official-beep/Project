@@ -16,7 +16,7 @@
 
     <!-- Doctor Image -->
     <div class="flex justify-center mb-6">
-      <img src="{{ doctor.image.url }}" alt="{{ doctor.name }}"
+      <img src="{% if doctor.image %}{{ doctor.image.url }}{% else %}{% static 'docter/docter1.png' %}{% endif %}" alt="{{ doctor.name }}"
            class="rounded-2xl shadow-lg w-40 h-40 object-cover border border-gray-300 hover:scale-105 transition duration-300">
     </div>
 

@@ -33,7 +33,7 @@
                 <div class="w-[37%] h-full bg-gray-100 shrink-0">
 
                     <img
-                        src="{{ doctor.image.url }}"
+                        src="{% if doctor.image %}{{ doctor.image.url }}{% else %}{% static 'docter/docter1.png' %}{% endif %}"
                         alt="Dr. {{ doctor.name }}"
                         class="w-full h-full object-cover"
                     >

@@ -1,13 +1,13 @@
- {% load static %}
- {% load humanize %}
+{% load static %}
+{% load humanize %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}My Django Site{% endblock %}</title>
+  <title>{% block title %}Healthcare Portal{% endblock %}</title>
   <script src="https://cdn.tailwindcss.com"></script>
-   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <script src="{% static 'js/sidebar.js' %}"></script>
@@ -15,15 +15,15 @@
 <body class="flex flex-col min-h-screen">
 
 <!-- Header -->
-<header class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-gray-200 shadow-lg">
+<header class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-gray-200 shadow-lg sticky top-0 z-40">
   <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
 
     <!-- Left: Logo + Title -->
-    <div class="flex items-center">
+    <a href="{% url 'home' %}" class="flex items-center no-underline text-gray-200 hover:text-white">
       <img src="{% static 'h-icon/h-logo.png' %}" alt="Healthcare Logo"
            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-md">
-      <h1 class="text-xl sm:text-2xl font-bold tracking-wide mt-3 ">Healthcare Portal</h1>
-    </div>
+      <h1 class="text-xl sm:text-2xl font-bold tracking-wide mt-2 ms-2">Healthcare Portal</h1>
+    </a>
 
     <!-- Mobile Menu Button -->
     <button id="menuToggle" class="md:hidden text-gray-200 hover:text-blue-400 focus:outline-none">
@@ -45,35 +45,55 @@
       </a>
     </nav>
 
-    <!-- Right: Icons + Username -->
-    <div class="hidden md:flex items-center gap-6">
+    <!-- Right: Icons + Auth Status -->
+    <div class="hidden md:flex items-center gap-4">
       <!-- Cart Icon -->
       <a href="{% url 'cart_view' %}" class="relative hover:text-blue-400 transition-transform transform hover:scale-110">
         <img src="{% static 'h-icon/img1.png' %}" alt="Cart Icon" class="w-8 h-8 sm:w-10 sm:h-10">
         <span class="absolute -top-1 right-2 bg-red-500 text-white text-xs rounded-full px-2">{{ cart_items|length }}</span>
       </a>
 
-      <!-- Profile -->
-      <a id="sidebarToggle" class="flex items-center gap-2 hover:text-blue-400 transition-colors no-underline">
+      <!-- Profile / User toggle -->
+      <a id="sidebarToggle" role="button" class="flex items-center gap-2 hover:text-blue-400 transition-colors no-underline cursor-pointer">
         <img src="{% static 'h-icon/img2.png' %}" alt="User Icon"
              class="w-8 h-8 sm:w-10 sm:h-10 rounded-full shadow-md">
-        {% comment %} <span class="font-semibold text-gray-200">{{ user.username }}</span> {% endcomment %}
       </a>
+
+      <!-- Login / User status -->
+      {% if user.is_authenticated %}
+        <span class="text-xs text-gray-300 font-semibold bg-gray-800 px-2 py-1 rounded">{{ user.username }}</span>
+      {% else %}
+        <a href="{% url 'login' %}" class="text-xs bg-blue-600 hover:bg-blue-500 text-white font-medium px-3 py-1.5 rounded-lg no-underline transition">Login</a>
+        <a href="{% url 'register' %}" class="text-xs bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-3 py-1.5 rounded-lg no-underline transition">Register</a>
+      {% endif %}
     </div>
   </div>
 
   <!-- Mobile Dropdown Menu -->
-  <div id="mobileMenu" class="hidden md:hidden bg-gray-800 text-gray-200 flex flex-col space-y-3 px-6 py-4">
+  <div id="mobileMenu" class="hidden md:hidden bg-gray-800 text-gray-200 flex flex-col space-y-3 px-6 py-4 border-t border-gray-700">
     <a href="{% url 'home' %}" class="hover:text-blue-400 no-underline">Home</a>
     <a href="{% url 'new_chat' %}" class="hover:text-blue-400 no-underline font-semibold text-blue-400">💬 AI Chatbot</a>
     <a href="{% url 'services' %}" class="hover:text-blue-400 no-underline">Services</a>
     <a href="{% url 'doctor_list' %}" class="hover:text-blue-400 no-underline">Doctors</a>
     <a href="{% url 'healthLibrary' %}" class="hover:text-blue-400 no-underline">Health Library</a>
     <a href="{% url 'about' %}" class="hover:text-blue-400 no-underline">About</a>
+    <a href="{% url 'cart_view' %}" class="hover:text-blue-400 no-underline">Cart</a>
+    {% if user.is_authenticated %}
+      <a href="{% url 'profile' %}" class="hover:text-blue-400 no-underline">Profile ({{ user.username }})</a>
+      <form method="post" action="{% url 'logout' %}" class="m-0 p-0">
+        {% csrf_token %}
+        <button type="submit" class="text-red-400 hover:text-red-300 text-sm font-medium bg-transparent border-0 p-0">Sign out</button>
+      </form>
+    {% else %}
+      <div class="flex gap-2 pt-2">
+        <a href="{% url 'login' %}" class="text-xs bg-blue-600 hover:bg-blue-500 text-white font-medium px-3 py-1.5 rounded-lg no-underline">Login</a>
+        <a href="{% url 'register' %}" class="text-xs bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-3 py-1.5 rounded-lg no-underline">Register</a>
+      </div>
+    {% endif %}
   </div>
 
   <!-- Sidebar -->
-  <div id="sidebar" class="fixed top-0 left-0 h-screen w-64 bg-gray-900 text-gray-200 transform -translate-x-full transition-transform duration-300">
+  <div id="sidebar" class="fixed top-0 left-0 h-screen w-64 bg-gray-900 text-gray-200 transform -translate-x-full transition-transform duration-300 z-50">
     {% include 'sidebar.html' %}
   </div>
 </header>
@@ -82,9 +102,30 @@
   // Mobile menu toggle
   const menuToggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
-  menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  // Password visibility toggle
+  function togglePassword(btn) {
+    const container = btn.closest('.relative');
+    if (!container) return;
+    const input = container.querySelector('input');
+    const openEye = btn.querySelector('.eye-open');
+    const closedEye = btn.querySelector('.eye-closed');
+    if (!input) return;
+    if (input.type === 'password') {
+      input.type = 'text';
+      if (openEye) openEye.classList.add('hidden');
+      if (closedEye) closedEye.classList.remove('hidden');
+    } else {
+      input.type = 'password';
+      if (openEye) openEye.classList.remove('hidden');
+      if (closedEye) closedEye.classList.add('hidden');
+    }
+  }
 </script>
 
   <!-- Main Content -->
@@ -116,11 +157,11 @@
       <div class="col-6 col-md-3 mb-4">
         <h5 class="text-white mb-3 font-semibold">Patient Resources</h5>
         <ul class="nav flex-column space-y-2">
-          <li><a href="#" class="hover:text-blue-400 text-gray-300 no-underline transition">Book Appointment</a></li>
-          <li><a href="#" class="hover:text-blue-400 text-gray-300 no-underline transition">Find Doctors</a></li>
-          <li><a href="#" class="hover:text-blue-400 text-gray-300 no-underline transition">Health Check Packages</a></li>
-          <li><a href="#" class="hover:text-blue-400 text-gray-300 no-underline transition">Emergency Services</a></li>
-          <li><a href="#" class="hover:text-blue-400 text-gray-300 no-underline transition">Contact Support</a></li>
+          <li><a href="{% url 'book_appointment' %}" class="hover:text-blue-400 text-gray-300 no-underline transition">Book Appointment</a></li>
+          <li><a href="{% url 'doctor_list' %}" class="hover:text-blue-400 text-gray-300 no-underline transition">Find Doctors</a></li>
+          <li><a href="{% url 'healthcheckup' %}" class="hover:text-blue-400 text-gray-300 no-underline transition">Health Check Packages</a></li>
+          <li><a href="{% url 'new_chat' %}" class="hover:text-blue-400 text-gray-300 no-underline transition">AI Consultation</a></li>
+          <li><a href="{% url 'about' %}" class="hover:text-blue-400 text-gray-300 no-underline transition">Contact Support</a></li>
         </ul>
       </div>
 
@@ -128,11 +169,11 @@
       <div class="col-6 col-md-3 mb-4">
         <h5 class="text-white mb-3 font-semibold">Quick Links</h5>
         <ul class="nav flex-column space-y-2">
-          <li><a href="#" class="hover:text-blue-400 text-gray-300 no-underline transition">Home</a></li>
-          <li><a href="#" class="hover:text-blue-400 text-gray-300 no-underline transition">Services</a></li>
-          <li><a href="#" class="hover:text-blue-400 text-gray-300 no-underline transition">Doctors</a></li>
-          <li><a href="#" class="hover:text-blue-400 text-gray-300 no-underline transition">Health Library</a></li>
-          <li><a href="#" class="hover:text-blue-400 text-gray-300 no-underline transition">About</a></li>
+          <li><a href="{% url 'home' %}" class="hover:text-blue-400 text-gray-300 no-underline transition">Home</a></li>
+          <li><a href="{% url 'services' %}" class="hover:text-blue-400 text-gray-300 no-underline transition">Services</a></li>
+          <li><a href="{% url 'doctor_list' %}" class="hover:text-blue-400 text-gray-300 no-underline transition">Doctors</a></li>
+          <li><a href="{% url 'healthLibrary' %}" class="hover:text-blue-400 text-gray-300 no-underline transition">Health Library</a></li>
+          <li><a href="{% url 'about' %}" class="hover:text-blue-400 text-gray-300 no-underline transition">About</a></li>
         </ul>
       </div>
 
@@ -159,28 +200,31 @@
   </div>
 </footer>
 
-
-
-  {% comment %} AI chatbot method integrate {% endcomment %}
 <script>
 async function sendMessage() {
-  const question = document.getElementById("user-input").value;
+  const inputEl = document.getElementById("user-input");
+  if (!inputEl) return;
+  const question = inputEl.value;
   if (!question.trim()) return;
 
+  const chatBox = document.getElementById("chat-box");
   try {
     const res = await fetch(`/ai_chat?question=${encodeURIComponent(question)}`);
     const data = await res.json();
-    document.getElementById("chat-box").innerHTML += `
-      <p><b>You:</b> ${question}</p>
-      <p><b>AI:</b> ${data.answer}</p>`;
-    document.getElementById("user-input").value = "";
+    if (chatBox) {
+      chatBox.innerHTML += `
+        <p><b>You:</b> ${question}</p>
+        <p><b>AI:</b> ${data.answer}</p>`;
+    }
+    inputEl.value = "";
   } catch (error) {
-    document.getElementById("chat-box").innerHTML += `
-      <p class="text-red-600"><b>Error:</b> Unable to connect to AI server.</p>`;
+    if (chatBox) {
+      chatBox.innerHTML += `
+        <p class="text-red-600"><b>Error:</b> Unable to connect to AI server.</p>`;
+    }
   }
 }
 </script>
-
 
 </body>
 </html>

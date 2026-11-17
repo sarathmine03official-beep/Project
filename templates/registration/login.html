@@ -7,6 +7,15 @@
       <p class="text-gray-600 mt-2">Access your dashboard and manage your health records.</p>
     </div>
 
+    <!-- Non-field error alert -->
+    {% if form.non_field_errors %}
+      <div class="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg">
+        {% for error in form.non_field_errors %}
+          <p class="flex items-center gap-1.5 font-medium">⚠️ {{ error }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+
     <form method="POST" class="space-y-6">
       {% csrf_token %}
 
@@ -32,7 +41,7 @@
 
     <!-- Success/Error Messages -->
     {% if messages %}
-      <div class="mt-6">
+      <div class="mt-6 space-y-2">
         {% for message in messages %}
           <div class="bg-green-100 text-green-700 p-3 rounded-lg font-medium">{{ message }}</div>
         {% endfor %}

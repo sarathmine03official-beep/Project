@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
+from .forms import CustomUserCreationForm
 from twilio.rest import Client
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -65,6 +65,7 @@ def wellnesscart(request):
     return render(request,'wellnesscart.html',context = data)
 
 
+@login_required
 def dashboard(request):
     stats = Goal.objects.get_or_create(user=request.user)[0]  # ✅ lowercase 'user'
     thresholds = {
@@ -83,6 +84,7 @@ def dashboard(request):
     return render(request, 'dashboard.html', context=data)
 
 from .forms import ActivityForm
+@login_required
 def add_activity(request):
     if request.method == 'POST':
         form = ActivityForm(request.POST)
@@ -102,6 +104,7 @@ def add_activity(request):
     }
     return render(request, 'add_activity.html', context=data)
 
+@login_required
 def edit_activity(request,activity_id):
     activity = get_object_or_404(Activity, id=activity_id, user=request.user)
     if request.method == 'POST':
@@ -119,6 +122,7 @@ def edit_activity(request,activity_id):
     }
     return render(request,'add_activity.html', context=data)
 
+@login_required
 def delete_activity(request, activity_id):
     activity = Activity.objects.get(id=activity_id, user=request.user)  # Ensure the activity belongs to the logged-in user
 
@@ -130,6 +134,7 @@ def delete_activity(request, activity_id):
 
 
 
+@login_required
 def profile(request):
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
@@ -148,6 +153,7 @@ def profile(request):
 
 
 
+@login_required
 def goal_update(request):
     goal, created = Goal.objects.get_or_create(user=request.user)
 
@@ -168,25 +174,14 @@ def goal_update(request):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
-            messages.success(request, 'Registration Successful')
+            messages.success(request, 'Registration Successful!')
             return redirect('home')
-            
-            
-            #  # ✅ Send SMS using Twilio
-            # mobile_number = form.cleaned_data.get('mobile')
-            # client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
-            # message = client.messages.create(
-            #     body=f"Hello {user.username}, your login was successful!",
-            #     from_=settings.TWILIO_PHONE_NUMBER,
-            #     to=f"+91{mobile_number}"  # India country code
-            # )
-            # return redirect('home')  # after registration, go to home page
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     return render(request, 'register.html', {'form': form})
 
 # views.py
@@ -497,6 +492,7 @@ def chat_view(request, id):
 from .models import Cart
 from .models import Product
 
+@login_required
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     cart_item, created = Cart.objects.get_or_create(user=request.user, product=product)
@@ -506,11 +502,13 @@ def add_to_cart(request, product_id):
     return redirect('cart_view')
 
 
+@login_required
 def cart_view(request):
     cart_items = Cart.objects.filter(user=request.user)
     total = sum(item.product.price * item.quantity for item in cart_items)
     return render(request, 'cart.html', {'cart_items': cart_items, 'total': total})
 
+@login_required
 def remove_from_cart(request, product_id):
     cart_item = get_object_or_404(Cart, user=request.user, product_id=product_id)
     cart_item.delete()
@@ -519,6 +517,7 @@ def remove_from_cart(request, product_id):
 # final order summary Buy methods
 from .models import Order
 from decimal import Decimal          
+@login_required
 def buy_now(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     discount_rate = Decimal('0.12')
@@ -532,17 +531,20 @@ def buy_now(request, product_id):
     )
     return redirect('order_summary', order_id=order.id)
 
+@login_required
 def order_summary(request, order_id):
     order = get_object_or_404(Order, id=order_id, user=request.user)
     return render(request, 'order_summary.html', {'order': order})
 
 # Payment Integration methods
+@login_required
 def payment_page(request, order_id):
     order = get_object_or_404(Order, id=order_id, user=request.user)
     return render(request, 'payment.html', {'order': order})
 
 
 
+@login_required
 def place_order(request, order_id):
     order = get_object_or_404(Order, id=order_id, user=request.user)
     payment_method = request.POST.get('payment_method')
@@ -561,6 +563,7 @@ def place_order(request, order_id):
 from django.shortcuts import render, get_object_or_404
 from .models import Order
 
+@login_required
 def order_success(request, order_id):
     order = get_object_or_404(Order, id=order_id, user=request.user)
     return render(request, 'order_success.html', {'order': order})
@@ -611,15 +614,3 @@ def sales_chart_view(request):
     return render(request, 'admin/sales_chart.html', context)
 
 
-from .forms import CustomUserCreationForm
-def register(request):
-    if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            messages.success(request, 'Registration Sucessful')
-            return redirect ('login')
-    else:
-        form = CustomUserCreationForm()
-    return render(request, 'register.html', {'form': form})

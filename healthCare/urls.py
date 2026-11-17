@@ -19,13 +19,19 @@ from django.urls import path
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path, include
+from django.urls import path, re_path, include
+from django.views.static import serve
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('reports.urls')),
 ]
-if settings.DEBUG:
+if True: # Always support static and media files
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if not settings.DEBUG:
+    urlpatterns += [
+        re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATICFILES_DIRS[0]}),
+        re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    ]

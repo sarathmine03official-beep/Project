@@ -17,15 +17,15 @@
 <body class="bg-gray-100">
 <!-- Sidebar -->
 <div class="d-flex flex-column flex-shrink-0 bg-light border-end shadow-sm h-100">
-  <a href="/" class="d-flex align-items-center mb-3 mt-3 text-decoration-none px-3">
-    <svg class="bi pe-none me-2" width="40" height="32" aria-hidden="true">
-      <use xlink:href="#bootstrap"></use>
-    </svg>
-    <span class="fs-4 fw-bold text-dark">Sidebar</span>
-  </a>
-  <hr class="mx-3" />
+  <div class="d-flex align-items-center justify-content-between px-3 mt-3 mb-3">
+    <a href="{% url 'home' %}" class="d-flex align-items-center text-decoration-none">
+      <span class="fs-4 fw-bold text-dark">Healthcare</span>
+    </a>
+    <button type="button" class="btn-close text-reset" aria-label="Close" onclick="document.getElementById('sidebar').classList.add('-translate-x-full')"></button>
+  </div>
+  <hr class="mx-3 my-0" />
 
-  <ul class="nav nav-pills flex-column mb-auto px-2">
+  <ul class="nav nav-pills flex-column mb-auto px-2 mt-3">
     <li class="nav-item">
       <a href="{% url 'home' %}" class="nav-link active d-flex align-items-center gap-2">
         🏠 <span>Home</span>
@@ -42,19 +42,26 @@
   <hr class="mx-3" />
   <div class="dropdown mt-auto px-3 mb-3">
     <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" data-bs-toggle="dropdown">
-      <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2" />
-      <strong>mdo</strong>
+      <img src="{% static 'h-icon/img2.png' %}" alt="Avatar" width="32" height="32" class="rounded-circle me-2" />
+      <strong>{% if user.is_authenticated %}{{ user.username }}{% else %}Guest{% endif %}</strong>
     </a>
     <ul class="dropdown-menu text-small shadow">
-      <li><a class="dropdown-item" href="#">New project...</a></li>
-      <li><a class="dropdown-item" href="#">Settings</a></li>
-      <li><a class="dropdown-item" href="#">Profile</a></li>
-      <li><hr class="dropdown-divider" /></li>
-      <li><a class="dropdown-item" href="#">Sign out</a></li>
+      {% if user.is_authenticated %}
+        <li><a class="dropdown-item" href="{% url 'profile' %}">👤 Profile</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li>
+          <form method="post" action="{% url 'logout' %}" class="m-0 p-0">
+            {% csrf_token %}
+            <button type="submit" class="dropdown-item text-danger border-0 bg-transparent w-100 text-start">🚪 Sign out</button>
+          </form>
+        </li>
+      {% else %}
+        <li><a class="dropdown-item" href="{% url 'login' %}">🔑 Sign in</a></li>
+        <li><a class="dropdown-item" href="{% url 'register' %}">📝 Register</a></li>
+      {% endif %}
     </ul>
   </div>
 </div>
-
 
 </body>
 </html>
