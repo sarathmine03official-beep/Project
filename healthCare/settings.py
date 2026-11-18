@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'reports',
     'django.contrib.humanize',
     'corsheaders',
+    'treatment',
 ]
 
 MIDDLEWARE = [
