@@ -359,10 +359,25 @@ def create_booking(request, doc_id):
             messages.error(request, 'This slot is already taken!')
     return render(request, 'book_appointment.html', {'doctor': doctor})
 
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import Doctor, DoctorBooking
+
+
+@login_required
 def view_doctor_bookings(request, doc_id):
-    doctor = Doctor.objects.get(id=doc_id)
-    appointments = DoctorBooking.objects.filter(doctor_ref=doctor)
-    return render(request, 'appointments_list.html', {'appointments': appointments, 'doctor': doctor})
+
+    doctor = get_object_or_404(Doctor, id=doc_id)
+
+    appointments = DoctorBooking.objects.filter(
+        doctor_ref=doctor,
+        user=request.user
+    ).order_by('-created_on')
+
+    return render(request, 'appointments_list.html', {
+        'appointments': appointments,
+        'doctor': doctor
+    })
 
 def appointment_detail(request, appointment_id):
     appointment = DoctorBooking.objects.select_related('doctor_ref').get(id=appointment_id)
