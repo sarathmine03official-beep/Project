@@ -72,9 +72,29 @@ class Doctor(models.Model):
     def get_full_info(self):
         return f"{self.name} - {self.specialization} ({self.experience})"
     
+
 class DoctorBooking(models.Model):
-    doctor_ref = models.ForeignKey('Doctor', on_delete=models.CASCADE)
-    patient_fullname = models.CharField(max_length=120, null=True, blank=True)
+
+    # Store the logged-in user
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='doctor_bookings',
+        null=True,
+        blank=True
+    )
+
+    doctor_ref = models.ForeignKey(
+        'Doctor',
+        on_delete=models.CASCADE
+    )
+
+    patient_fullname = models.CharField(
+        max_length=120,
+        null=True,
+        blank=True
+    )
+
     appointment_date = models.DateField()
     appointment_time = models.TimeField()
     created_on = models.DateTimeField(auto_now_add=True)
@@ -84,7 +104,12 @@ class DoctorBooking(models.Model):
         ('Confirmed', 'Confirmed'),
         ('Cancelled', 'Cancelled'),
     ]
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Pending')
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='Pending'
+    )
 
     def __str__(self):
         return f"{self.patient_fullname} → {self.doctor_ref.name}"
@@ -95,6 +120,7 @@ class DoctorBooking(models.Model):
             appointment_date=self.appointment_date,
             appointment_time=self.appointment_time
         )
+
         return not existing.exists()
 
 
