@@ -4,15 +4,36 @@
  {% block title %}{{title}}{% endblock %}
  {% block content %}
 
+<div id="myCarouselUnique1" class="carousel slide mb-6 relative" data-bs-ride="carousel" data-bs-interval="1500">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#myCarouselUnique1" data-bs-slide-to="0" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#myCarouselUnique1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#myCarouselUnique1" data-bs-slide-to="2" class="active" aria-current="true" aria-label="Slide 3"></button>
+  </div>
 
-<div class="relative sm:absolute
-            bottom-auto sm:bottom-3 md:bottom-5 lg:bottom-8
-            left-0 sm:left-1/2
-            translate-x-0 sm:-translate-x-1/2
-            w-full sm:w-[90%] lg:w-auto
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'home/ban1.png' %}" alt="Doctor holding heart model"
+           class="shadow-lg w-full h-auto object-cover">
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'home/ban2.png' %}" alt="Doctor holding heart model"
+           class="shadow-lg w-full h-auto object-cover">
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'home/ban3.png' %}" alt="Doctor holding heart model"
+           class="shadow-lg w-full h-auto object-cover">
+    </div>
+  </div>
+
+<div class="absolute bottom-3 sm:bottom-5 md:bottom-8
+            left-1/2 -translate-x-1/2
+            w-[52%] sm:w-[90%] lg:w-auto
             max-w-full
             flex flex-col sm:flex-row
-            rounded-none sm:rounded-full
+            rounded-2xl sm:rounded-full
             overflow-hidden shadow-lg z-20">
 
     <!-- Book Appointment -->
@@ -26,7 +47,8 @@
               transition duration-300
               no-underline hover:no-underline">
 
-        <span class="text-sm sm:text-xs md:text-sm lg:text-base whitespace-nowrap">
+        <span class="text-sm sm:text-xs md:text-sm lg:text-base
+                     whitespace-nowrap">
             Book Appointment
         </span>
 
@@ -45,6 +67,7 @@
         </span>
     </a>
 
+
     <!-- WellnessCart -->
     <a href="{% url 'product_list' %}"
        class="flex flex-1 items-center justify-between gap-3
@@ -56,7 +79,8 @@
               transition duration-300
               no-underline hover:no-underline">
 
-        <span class="text-sm sm:text-xs md:text-sm lg:text-base whitespace-nowrap">
+        <span class="text-sm sm:text-xs md:text-sm lg:text-base
+                     whitespace-nowrap">
             WellnessCart
         </span>
 
@@ -75,6 +99,7 @@
         </span>
     </a>
 
+
     <!-- Exercise Dashboard -->
     <a href="{% url 'dashboard' %}"
        class="flex flex-1 items-center justify-between gap-3
@@ -85,7 +110,8 @@
               transition duration-300
               no-underline hover:no-underline">
 
-        <span class="text-sm sm:text-xs md:text-sm lg:text-base whitespace-nowrap">
+        <span class="text-sm sm:text-xs md:text-sm lg:text-base
+                     whitespace-nowrap">
             Exercise Dashboard
         </span>
 
@@ -106,6 +132,17 @@
 
 </div>
 
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarouselUnique1" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarouselUnique1" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
 <!-- AI Healthcare Assistant Banner -->
 <div class="max-w-4xl mx-auto my-8 px-4">
