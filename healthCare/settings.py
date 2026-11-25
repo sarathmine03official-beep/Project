@@ -84,12 +84,7 @@ WSGI_APPLICATION = 'healthCare.wsgi.application'
 import os
 import dj_database_url
 from pathlib import Path
-
-
-
-
 DATABASE_URL = os.environ.get('DATABASE_URL')
-
 if DATABASE_URL:
     DATABASES = {
         'default': dj_database_url.parse(
