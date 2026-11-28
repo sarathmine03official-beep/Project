@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from .models import Appointment
-from .models import Goal
+from .models import Goal,DoctorBooking
 
 from django import forms
 from django.contrib.auth.models import User
@@ -176,7 +176,16 @@ class CustomAuthenticationForm(AuthenticationForm):
                 field.widget.attrs.update({'class':base_classes})
 
 
-        
+class DoctorBookingForm(forms.ModelForm):
+
+    class Meta:
+        model = DoctorBooking
+
+        fields = [
+            'patient_fullname',
+            'appointment_date',
+            'appointment_time',
+        ]
 
 
 

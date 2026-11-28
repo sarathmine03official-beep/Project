@@ -73,19 +73,22 @@ class Doctor(models.Model):
         return f"{self.name} - {self.specialization} ({self.experience})"
     
 
+from django.db import models
+from django.contrib.auth.models import User
+
+
 class DoctorBooking(models.Model):
 
-    # Store the logged-in user
     user = models.ForeignKey(
         User,
-        on_delete=models.CASCADE,
-        related_name='doctor_bookings',
+        on_delete=models.SET_NULL,
         null=True,
-        blank=True
+        blank=True,
+        related_name='doctor_bookings'
     )
 
     doctor_ref = models.ForeignKey(
-        'Doctor',
+        Doctor,
         on_delete=models.CASCADE
     )
 
@@ -96,33 +99,25 @@ class DoctorBooking(models.Model):
     )
 
     appointment_date = models.DateField()
-    appointment_time = models.TimeField()
-    created_on = models.DateTimeField(auto_now_add=True)
 
-    STATUS_CHOICES = [
-        ('Pending', 'Pending'),
-        ('Confirmed', 'Confirmed'),
-        ('Cancelled', 'Cancelled'),
-    ]
+    appointment_time = models.TimeField()
+
+    created_on = models.DateTimeField(
+        auto_now_add=True
+    )
 
     status = models.CharField(
         max_length=20,
-        choices=STATUS_CHOICES,
+        choices=[
+            ('Pending', 'Pending'),
+            ('Confirmed', 'Confirmed'),
+            ('Cancelled', 'Cancelled')
+        ],
         default='Pending'
     )
 
     def __str__(self):
-        return f"{self.patient_fullname} → {self.doctor_ref.name}"
-
-    def is_slot_open(self):
-        existing = DoctorBooking.objects.filter(
-            doctor_ref=self.doctor_ref,
-            appointment_date=self.appointment_date,
-            appointment_time=self.appointment_time
-        )
-
-        return not existing.exists()
-
+        return f"{self.patient_fullname} - {self.doctor_ref.name}"
 
 
 #Create a Model for Health Checkup

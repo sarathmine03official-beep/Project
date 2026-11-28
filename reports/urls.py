@@ -61,4 +61,14 @@ urlpatterns = [
     # Admin dashboard & Analytics
     path('admin-dashboard/', views.admin_dashboard, name='admin_dashboard'),
     path('sales-chart/', views.sales_chart_view, name='sales_chart'),
+    path(
+    'my-appointments/',
+    views.my_appointments,
+    name='my_appointments'
+),
+    path(
+    'book/<int:doc_id>/',
+    views.create_booking,
+    name='create_booking'
+),
 ]

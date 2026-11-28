@@ -337,52 +337,109 @@ def doctor_list(request):
     return render(request, 'doctor_list.html', {'doctors': doctors})
 
 
+@login_required
 def create_booking(request, doc_id):
+
     doctor = get_object_or_404(Doctor, id=doc_id)
+
     if request.method == 'POST':
+
         patient_fullname = request.POST.get('patient_fullname')
         appointment_date = request.POST.get('appointment_date')
         appointment_time = request.POST.get('appointment_time')
 
-        booking = DoctorBooking(
+        # Check whether this doctor slot is already booked
+        slot_exists = DoctorBooking.objects.filter(
             doctor_ref=doctor,
-            patient_fullname=patient_fullname,
             appointment_date=appointment_date,
             appointment_time=appointment_time
-        )
+        ).exclude(
+            status='Cancelled'
+        ).exists()
 
-        if booking.is_slot_open():
-            booking.save()
-            messages.success(request, 'Appointment booked successfully!')
-            return redirect('view_doctor_bookings', doc_id=doctor.id)
+        if not slot_exists:
+
+            booking = DoctorBooking.objects.create(
+                user=request.user,
+                doctor_ref=doctor,
+                patient_fullname=patient_fullname,
+                appointment_date=appointment_date,
+                appointment_time=appointment_time
+            )
+
+            messages.success(
+                request,
+                'Appointment booked successfully!'
+            )
+
+            return redirect('my_appointments')
+
         else:
-            messages.error(request, 'This slot is already taken!')
-    return render(request, 'book_appointment.html', {'doctor': doctor})
+
+            messages.error(
+                request,
+                'This slot is already taken!'
+            )
+
+    return render(request, 'book_appointment.html', {
+        'doctor': doctor
+    })
 
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Doctor, DoctorBooking
 
 
-
+@login_required
 @login_required
 def view_doctor_bookings(request, doc_id):
 
     doctor = get_object_or_404(Doctor, id=doc_id)
 
     appointments = DoctorBooking.objects.filter(
-        doctor_ref=doctor,
         user=request.user
-    )
+    ).select_related(
+        'doctor_ref'
+    ).order_by('-created_on')
+
+    print("Logged-in User:", request.user.username)
+    print("User ID:", request.user.id)
+    print("Total Appointments:", appointments.count())
 
     return render(request, 'appointments_list.html', {
         'appointments': appointments,
         'doctor': doctor
-    }) 
+    })
+    
+    from django.contrib.auth.decorators import login_required
 
+
+
+@login_required
+def my_appointments(request):
+
+    appointments = DoctorBooking.objects.filter(
+        user=request.user
+    ).select_related(
+        'doctor_ref'
+    ).order_by('-created_on')
+
+    return render(request, 'appointments_list.html', {
+        'appointments': appointments
+    })
+    
+@login_required
 def appointment_detail(request, appointment_id):
-    appointment = DoctorBooking.objects.select_related('doctor_ref').get(id=appointment_id)
-    return render(request, 'appointment_detailD.html', {'appointment': appointment})
+
+    appointment = get_object_or_404(
+        DoctorBooking,
+        id=appointment_id,
+        user=request.user
+    )
+
+    return render(request, 'appointment_detailD.html', {
+        'appointment': appointment
+    })
 
 
 
